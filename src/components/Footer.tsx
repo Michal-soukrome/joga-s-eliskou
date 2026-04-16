@@ -2,7 +2,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-stone-950 text-stone-500 py-14 px-6 border-t border-stone-800">
+    <footer className="bg-sky-950 text-sky-400 py-14 px-6 border-t border-sky-900">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -22,14 +22,14 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-semibold mb-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-sky-300 font-semibold mb-5">
               Navigace
             </p>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href="#services"
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-sky-200 transition-colors"
                 >
                   Lekce & Programy
                 </a>
@@ -37,7 +37,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#testimonials"
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-sky-200 transition-colors"
                 >
                   Ohlasy
                 </a>
@@ -45,7 +45,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="hover:text-amber-400 transition-colors"
+                  className="hover:text-sky-200 transition-colors"
                 >
                   Kontakt
                 </a>
@@ -55,17 +55,17 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-semibold mb-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-sky-300 font-semibold mb-5">
               Sledujte
             </p>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="hover:text-amber-400 transition-colors">
+                <a href="#" className="hover:text-sky-200 transition-colors">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-amber-400 transition-colors">
+                <a href="#" className="hover:text-sky-200 transition-colors">
                   Facebook
                 </a>
               </li>
@@ -73,7 +73,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs">
+        <div className="border-t border-sky-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs">
           <p>&copy; {currentYear} Eliška Radová — Studio Yogaway, Beroun</p>
           <p>IČO: 24528480</p>
         </div>

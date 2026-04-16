@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="cs" className={`${playfair.variable} ${poppins.variable}`}>
-      <body className="bg-stone-950 font-poppins">{children}</body>
+      <body className="bg-sky-50 font-poppins">{children}</body>
     </html>
   );
 }

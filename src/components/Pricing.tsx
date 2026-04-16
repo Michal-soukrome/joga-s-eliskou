@@ -1,0 +1,135 @@
+import SectionTitle from "@/components/SectionTitle";
+
+const pricingPlans = [
+  {
+    id: 1,
+    name: "První lekce",
+    price: "170",
+    description: "Vyzkoušejte power jógu bez rizika",
+    features: [
+      "Individuální posouzení",
+      "Přizpůsobená úroveň",
+      "Konzultace po lekci",
+    ],
+    cta: "Zarezervovat",
+    href: "#reservations",
+  },
+  {
+    id: 2,
+    name: "Permanentka 10×",
+    price: "1800",
+    description: "Nejlepší cena pro pravidelné cvičení",
+    features: [
+      "Neomezená doba platnosti",
+      "Flexibilní rozvrh",
+      "Sleva na skupinové lekce",
+      "Přístup k tipy & trikům",
+    ],
+    cta: "Koupit permanentku",
+    href: "#reservations",
+    highlighted: true,
+  },
+  {
+    id: 3,
+    name: "Skupinová lekce",
+    price: "Dle typu",
+    description: "Cvičení s přáteli a motivací skupiny",
+    features: [
+      "Interakce s ostatními",
+      "Větší motivace",
+      "Komunitní pocit",
+      "Speciální workshopy",
+    ],
+    cta: "Dozvědět se více",
+    href: "#contact",
+  },
+];
+
+export default function Pricing() {
+  return (
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <SectionTitle
+          title="Ceník"
+          subtitle="Dostupné lekce a tréninkové programy"
+        />
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {pricingPlans.map((plan) => (
+            <div
+              key={plan.id}
+              className={`relative transition-all duration-300 ${
+                plan.highlighted
+                  ? "md:scale-105 md:-translate-y-4"
+                  : "flex flex-col"
+              }`}
+            >
+              <div
+                className={`border rounded-xl p-8 flex flex-col h-full transition-all duration-300 ${
+                  plan.highlighted
+                    ? "border-sky-400 bg-gradient-to-br from-sky-50 to-white shadow-xl"
+                    : "border-sky-100 bg-white hover:border-sky-300 shadow-md hover:shadow-lg"
+                }`}
+              >
+                {plan.highlighted && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="px-4 py-1 bg-sky-600 text-white text-xs uppercase tracking-widest font-semibold rounded-full">
+                      Nejpopulárnější
+                    </span>
+                  </div>
+                )}
+
+                <h3 className="text-xl font-bold text-sky-900 font-playfair mb-2">
+                  {plan.name}
+                </h3>
+                <p className="text-sky-600 text-sm mb-6">{plan.description}</p>
+
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-sky-900 font-playfair">
+                      {plan.price}
+                    </span>
+                    {plan.price !== "Dle typu" && (
+                      <span className="text-sky-600">Kč</span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-3 mb-8 flex-grow">
+                  {plan.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <span className="text-sky-500 font-bold mt-0.5">✓</span>
+                      <span className="text-sky-700 text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a
+                  href={plan.href}
+                  className={`inline-block ${
+                    plan.highlighted ? "btn-primary" : "btn-outline"
+                  }`}
+                >
+                  {plan.cta}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 bg-sky-50 rounded-xl p-8 border border-sky-100">
+          <h3 className="text-lg font-bold text-sky-900 mb-4">
+            Máš další otázky?
+          </h3>
+          <p className="text-sky-700 mb-6">
+            Všechny ceny jsou bez DPH. Individuální lekce a speciální programy
+            na vyžádání. Kontaktuj mě pro více informací.
+          </p>
+          <a href="#contact" className="inline-block btn-primary">
+            Napsat zprávu
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}

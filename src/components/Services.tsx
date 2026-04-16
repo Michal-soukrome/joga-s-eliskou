@@ -57,10 +57,7 @@ import SectionTitle from "@/components/SectionTitle";
 
 export default function Services() {
   return (
-    <section
-      id="services"
-      className="py-24 px-6 bg-stone-950"
-    >
+    <section id="services" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           title="Lekce & Programy"
@@ -68,32 +65,34 @@ export default function Services() {
           accentColor="emerald"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-stone-800">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-sky-100">
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="bg-stone-950 group cursor-pointer overflow-hidden relative"
+              className="bg-white group overflow-hidden relative"
             >
               {/* Image */}
               <div className="h-52 overflow-hidden relative">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-sky-900/30 via-transparent to-transparent"></div>
                 {/* Number badge */}
-                <div className="absolute top-4 left-4 text-xs font-mono text-amber-400/60 tracking-widest">
+                <div className="absolute top-4 left-4 text-xs font-mono text-white/70 tracking-widest">
                   {serviceNumbers[index]}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 border-t border-stone-800 group-hover:border-amber-400/30 transition-colors duration-300">
-                <h3 className="text-lg font-bold text-white font-playfair mb-2 group-hover:text-amber-400 transition-colors duration-300">
+              <div className="p-6 border-t border-sky-100 group-hover:border-sky-300 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-sky-900 font-playfair mb-2 group-hover:text-sky-600 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-stone-400 text-sm leading-relaxed">{service.description}</p>
+                <p className="text-sky-600 text-sm leading-relaxed">
+                  {service.description}
+                </p>
               </div>
             </div>
           ))}

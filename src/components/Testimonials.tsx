@@ -35,10 +35,7 @@ import SectionTitle from "@/components/SectionTitle";
 
 export default function Testimonials() {
   return (
-    <section
-      id="testimonials"
-      className="py-24 px-6 bg-stone-900"
-    >
+    <section id="testimonials" className="py-24 px-6 bg-sky-50">
       <div className="max-w-7xl mx-auto">
         <SectionTitle
           title="Ohlasy"
@@ -50,29 +47,31 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-stone-950 border border-stone-800 p-8 hover:border-amber-400/30 transition-all duration-300 group"
+              className="bg-white border border-sky-100 p-8 hover:border-sky-300 transition-all duration-300 group"
             >
               <div className="flex gap-0.5 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-amber-400 text-base">
+                  <span key={i} className="text-sky-400 text-base">
                     ★
                   </span>
                 ))}
               </div>
-              <p className="text-stone-300 mb-8 leading-relaxed text-sm">
+              <p className="text-sky-700 mb-8 leading-relaxed text-sm">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
-              <div className="flex items-center gap-4 pt-6 border-t border-stone-800 group-hover:border-amber-400/20 transition-colors">
+              <div className="flex items-center gap-4 pt-6 border-t border-sky-100 group-hover:border-sky-200 transition-colors">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-11 h-11 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-11 h-11 rounded-full object-cover transition-all duration-500"
                 />
                 <div>
-                  <p className="font-semibold text-white text-sm">
+                  <p className="font-semibold text-sky-900 text-sm">
                     {testimonial.name}
                   </p>
-                  <p className="text-xs text-stone-500 mt-0.5">{testimonial.role}</p>
+                  <p className="text-xs text-sky-500 mt-0.5">
+                    {testimonial.role}
+                  </p>
                 </div>
               </div>
             </div>
