@@ -48,7 +48,7 @@ const pricingPlans = [
 
 export default function Pricing() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-bl from-sky-50 via-white to-sky-100">
+    <section className="py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50">
       <Container>
         <SectionTitle
           title="Ceník"

@@ -4,12 +4,10 @@ const credentials = ["Certifikovaná instruktorka"];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-sky-50 via-white to-sky-100">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50">
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e0f2fe_1px,transparent_1px),linear-gradient(to_bottom,#e0f2fe_1px,transparent_1px)] bg-[size:80px_80px] opacity-60 z-0"></div>
 
-      {/* Ambient glow */}
-      <div className="absolute top-1/3 right-0 w-[700px] h-[700px] bg-sky-300/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
       <div className="absolute bottom-0 -left-32 w-[500px] h-[500px] bg-sky-200/30 rounded-full blur-3xl z-0 pointer-events-none"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center min-h-screen pt-20 py-24">
@@ -63,10 +61,10 @@ export default function Hero() {
         <div className="relative hidden md:block">
           <div className="relative aspect-[4/5]">
             {/* Offset accent border with shadow */}
-            <div className="absolute inset-0 border border-sky-200 -translate-x-4 translate-y-4 z-0 shadow-xl shadow-sky-500/20"></div>
+            <div className="absolute inset-0 border border-sky-200 -translate-x-4 translate-y-4 z-0"></div>
 
             {/* Image */}
-            <div className="absolute inset-0 overflow-hidden z-10 shadow-2xl shadow-sky-400/30">
+            <div className="absolute inset-0 overflow-hidden z-10">
               <Image
                 src="/assets/eliska.jpg"
                 alt="Eliška Radová — Power Yoga"

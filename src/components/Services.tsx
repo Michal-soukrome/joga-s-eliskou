@@ -61,7 +61,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-24 px-6 bg-gradient-to-bl from-sky-50 via-white to-sky-100"
+      className="py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
         <SectionTitle

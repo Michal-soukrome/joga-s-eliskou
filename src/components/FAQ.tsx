@@ -36,7 +36,7 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-tl from-sky-50 via-white to-sky-100">
+    <section className="py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50">
       <Container size="4xl">
         <SectionTitle
           title="Často kladené otázky"

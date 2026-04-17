@@ -5,7 +5,7 @@ export default function Reservations() {
   return (
     <section
       id="reservations"
-      className="py-24 px-6 bg-gradient-to-tl from-sky-50 via-white to-sky-100"
+      className="py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
         <SectionTitle
