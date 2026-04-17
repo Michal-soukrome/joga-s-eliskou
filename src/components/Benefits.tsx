@@ -1,4 +1,5 @@
 import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/Container";
 
 const benefits = [
   {
@@ -100,8 +101,8 @@ const IconComponent = ({ type }: { type: string }) => {
 
 export default function Benefits() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 bg-gradient-to-tl from-sky-50 via-white to-sky-100">
+      <Container>
         <SectionTitle
           title="Výhody"
           subtitle="Co se změní během prvních týdnů práce s power jógou"
@@ -111,24 +112,24 @@ export default function Benefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="group relative bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-xl p-8 hover:border-sky-300 hover:shadow-xl transition-all duration-300"
+              className="group relative bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-xl p-8 hover:border-sky-300 hover:shadow-2xl hover:shadow-sky-200/40 transition-all duration-300"
             >
               {/* Background accent */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-sky-100 rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 blur-2xl"></div>
+              <div className="absolute top-0 right-0 w-24 h-24 bg-sky-200 rounded-full -z-10 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-3xl"></div>
 
-              <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+              <div className="mb-4 transform group-hover:scale-125 transition-all duration-300">
                 <IconComponent type={benefit.icon} />
               </div>
-              <h3 className="text-xl font-bold text-sky-900 font-playfair mb-3 group-hover:text-sky-600 transition-colors">
+              <h3 className="text-xl font-bold text-sky-900 font-playfair mb-3 group-hover:text-sky-700 transition-colors duration-300">
                 {benefit.title}
               </h3>
-              <p className="text-sky-700 leading-relaxed">
+              <p className="text-sky-700 leading-relaxed group-hover:text-sky-800 transition-colors duration-300">
                 {benefit.description}
               </p>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

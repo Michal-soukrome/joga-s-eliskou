@@ -1,3 +1,6 @@
+import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/Container";
+
 const testimonials = [
   {
     id: 1,
@@ -31,12 +34,13 @@ const testimonials = [
   },
 ];
 
-import SectionTitle from "@/components/SectionTitle";
-
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 px-6 bg-sky-50">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="testimonials"
+      className="py-24 px-6 bg-gradient-to-bl from-sky-50 via-white to-sky-100"
+    >
+      <Container>
         <SectionTitle
           title="Ohlasy"
           subtitle="Skutečné zkušenosti od lidí, kteří transformovali svou praxi"
@@ -47,23 +51,23 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white border border-sky-100 p-8 hover:border-sky-300 transition-all duration-300 group"
+              className="bg-white border border-sky-100 p-8 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-200/30 transition-all duration-300 group rounded-lg"
             >
-              <div className="flex gap-0.5 mb-6">
+              <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-sky-400 text-base">
+                  <span key={i} className="text-yellow-400 text-lg">
                     ★
                   </span>
                 ))}
               </div>
-              <p className="text-sky-700 mb-8 leading-relaxed text-sm">
+              <p className="text-sky-700 mb-8 leading-relaxed text-sm group-hover:text-sky-800 transition-colors duration-300">
                 &ldquo;{testimonial.content}&rdquo;
               </p>
               <div className="flex items-center gap-4 pt-6 border-t border-sky-100 group-hover:border-sky-200 transition-colors">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-11 h-11 rounded-full object-cover transition-all duration-500"
+                  className="w-11 h-11 rounded-full object-cover transition-all duration-500 group-hover:scale-110"
                 />
                 <div>
                   <p className="font-semibold text-sky-900 text-sm">
@@ -77,7 +81,7 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

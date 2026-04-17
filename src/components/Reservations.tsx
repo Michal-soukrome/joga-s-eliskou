@@ -1,12 +1,13 @@
 import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/Container";
 
 export default function Reservations() {
   return (
     <section
       id="reservations"
-      className="py-24 px-6 bg-gradient-to-b from-white to-sky-50"
+      className="py-24 px-6 bg-gradient-to-tl from-sky-50 via-white to-sky-100"
     >
-      <div className="max-w-7xl mx-auto">
+      <Container>
         <SectionTitle
           title="Rezervace"
           subtitle="Vyberte si čas, který vám vyhovuje, a zarezervujte si místo na lekci"
@@ -15,12 +16,12 @@ export default function Reservations() {
         <div className="flex justify-center">
           <iframe
             src="https://power-joga-s-eliskou.reservio.com"
-            width="800px"
-            height="500px"
+            width="1280px"
+            height="800px"
             frameBorder="0"
           />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

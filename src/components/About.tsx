@@ -1,4 +1,5 @@
 import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/Container";
 
 const CredentialIcon = ({ type }: { type: string }) => {
   const icons: Record<string, JSX.Element> = {
@@ -40,8 +41,8 @@ const CredentialIcon = ({ type }: { type: string }) => {
 
 export default function About() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-b from-white to-sky-50">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 bg-gradient-to-tr from-sky-50 via-white to-sky-100">
+      <Container>
         <SectionTitle
           title="O Elišce"
           subtitle="Cesta k autentičnosti, síle a vnitřnímu míru"
@@ -95,7 +96,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

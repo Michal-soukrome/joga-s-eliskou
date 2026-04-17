@@ -60,21 +60,21 @@ export default function Hero() {
         {/* Right side — image with accent border */}
         <div className="relative hidden md:block">
           <div className="relative aspect-[4/5]">
-            {/* Offset accent border */}
-            <div className="absolute inset-0 border border-sky-300 -translate-x-4 translate-y-4 z-0"></div>
+            {/* Offset accent border with shadow */}
+            <div className="absolute inset-0 border border-sky-200 -translate-x-4 translate-y-4 z-0 shadow-xl shadow-sky-500/20"></div>
 
             {/* Image */}
-            <div className="absolute inset-0 overflow-hidden z-10">
+            <div className="absolute inset-0 overflow-hidden z-10 shadow-2xl shadow-sky-400/30">
               <img
                 src="/assets/eliska.jpg"
                 alt="Eliška Radová — Power Yoga"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-sky-100/40 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-sky-200/30 via-transparent to-transparent"></div>
             </div>
 
             {/* Floating schedule card */}
-            <div className="absolute -bottom-6 -left-6 bg-white border border-sky-200 p-5 z-20 shadow-xl shadow-sky-100">
+            <div className="absolute -bottom-6 -left-6 bg-white border border-sky-200 p-5 z-20 shadow-2xl shadow-sky-300/40">
               <p className="text-sky-500 text-xs uppercase tracking-widest mb-1 font-semibold">
                 Každou středu
               </p>

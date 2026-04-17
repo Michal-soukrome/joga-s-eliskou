@@ -1,6 +1,7 @@
 "use client";
 
 import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/Container";
 
 const contactItems = [
   {
@@ -34,9 +35,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 px-6 bg-white border-t border-sky-100"
+      className="py-24 px-6 bg-gradient-to-bl from-sky-50 via-white to-sky-100"
     >
-      <div className="max-w-7xl mx-auto">
+      <Container>
         <SectionTitle
           title="Kontakt"
           subtitle="Chcete začít svou jógovou cestu? Spojte se se mnou."
@@ -50,20 +51,20 @@ export default function Contact() {
             {contactItems.map((item) => (
               <div
                 key={item.label}
-                className="border-l-2 border-sky-200 pl-5 hover:border-sky-400 transition-colors group"
+                className="border-l-2 border-sky-300 pl-5 hover:border-sky-500 hover:pl-6 transition-all duration-200 group"
               >
-                <p className="text-xs uppercase tracking-[0.2em] text-sky-400 mb-2 group-hover:text-sky-600 transition-colors">
+                <p className="text-xs uppercase tracking-[0.2em] text-sky-500 mb-2 group-hover:text-sky-700 transition-colors duration-200 font-semibold">
                   {item.label}
                 </p>
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="text-sky-700 hover:text-sky-900 transition-colors text-sm leading-relaxed whitespace-pre-line"
+                    className="text-sky-700 hover:text-sky-900 transition-all duration-200 text-sm leading-relaxed whitespace-pre-line font-medium"
                   >
                     {item.value}
                   </a>
                 ) : (
-                  <p className="text-sky-700 text-sm leading-relaxed whitespace-pre-line">
+                  <p className="text-sky-700 text-sm leading-relaxed whitespace-pre-line font-medium">
                     {item.value}
                   </p>
                 )}
@@ -72,7 +73,7 @@ export default function Contact() {
           </div>
 
           {/* Right: CTA card */}
-          <div className="bg-sky-50 border border-sky-200 p-10">
+          <div className="bg-gradient-to-br from-sky-50 to-sky-100 border border-sky-200 rounded-lg p-10 shadow-lg hover:shadow-xl hover:shadow-sky-200/40 transition-all duration-300">
             <p className="text-xs uppercase tracking-[0.3em] text-sky-500 font-semibold mb-3">
               Online rezervace
             </p>
@@ -90,7 +91,7 @@ export default function Contact() {
             </a>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

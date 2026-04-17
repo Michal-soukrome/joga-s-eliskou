@@ -1,15 +1,17 @@
+import Container from "@/components/Container";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-sky-950 text-sky-400 py-14 px-6 border-t border-sky-900">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-gradient-to-tl from-sky-50 via-white to-sky-100 text-sky-600 py-14 px-6 border-t border-sky-100">
+      <Container>
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-px h-7 bg-amber-400"></div>
-              <span className="font-playfair text-xl font-bold text-white">
+              <span className="font-playfair text-xl font-bold text-sky-800">
                 Eliška <span className="text-amber-400">Radová</span>
               </span>
             </div>
@@ -29,7 +31,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#services"
-                  className="hover:text-sky-200 transition-colors"
+                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
                 >
                   Lekce & Programy
                 </a>
@@ -37,7 +39,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#testimonials"
-                  className="hover:text-sky-200 transition-colors"
+                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
                 >
                   Ohlasy
                 </a>
@@ -45,7 +47,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#contact"
-                  className="hover:text-sky-200 transition-colors"
+                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
                 >
                   Kontakt
                 </a>
@@ -55,17 +57,23 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-sky-300 font-semibold mb-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-sky-200 font-semibold mb-5">
               Sledujte
             </p>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="hover:text-sky-200 transition-colors">
+                <a
+                  href="#"
+                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
+                >
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-sky-200 transition-colors">
+                <a
+                  href="#"
+                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
+                >
                   Facebook
                 </a>
               </li>
@@ -73,11 +81,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-sky-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs">
+        <div className="border-t border-sky-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-sky-600">
           <p>&copy; {currentYear} Eliška Radová — Studio Yogaway, Beroun</p>
           <p>IČO: 24528480</p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

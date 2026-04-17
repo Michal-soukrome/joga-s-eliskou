@@ -1,3 +1,6 @@
+import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/Container";
+
 const serviceNumbers = ["01", "02", "03", "04", "05", "06"];
 
 const services = [
@@ -53,32 +56,33 @@ const services = [
   },
 ];
 
-import SectionTitle from "@/components/SectionTitle";
-
 export default function Services() {
   return (
-    <section id="services" className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="services"
+      className="py-24 px-6 bg-gradient-to-bl from-sky-50 via-white to-sky-100"
+    >
+      <Container>
         <SectionTitle
           title="Lekce & Programy"
           subtitle="Power jóga pro začátečníky i mírně pokročilé v Berouně"
           accentColor="emerald"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-sky-100">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="bg-white group overflow-hidden relative"
+              className="bg-white group overflow-hidden relative rounded-lg shadow-md hover:shadow-xl hover:shadow-sky-200/50 transition-all duration-300 border border-sky-50 hover:border-sky-200"
             >
               {/* Image */}
               <div className="h-52 overflow-hidden relative">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-sky-900/30 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-sky-950/40 via-transparent to-transparent"></div>
                 {/* Number badge */}
                 <div className="absolute top-4 left-4 text-xs font-mono text-white/70 tracking-widest">
                   {serviceNumbers[index]}
@@ -87,17 +91,17 @@ export default function Services() {
 
               {/* Content */}
               <div className="p-6 border-t border-sky-100 group-hover:border-sky-300 transition-colors duration-300">
-                <h3 className="text-lg font-bold text-sky-900 font-playfair mb-2 group-hover:text-sky-600 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-sky-900 font-playfair mb-2 group-hover:text-sky-700 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-sky-600 text-sm leading-relaxed">
+                <p className="text-sky-600 text-sm leading-relaxed group-hover:text-sky-700 transition-colors duration-300">
                   {service.description}
                 </p>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

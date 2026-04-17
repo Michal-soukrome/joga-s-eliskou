@@ -1,4 +1,5 @@
 import SectionTitle from "@/components/SectionTitle";
+import Container from "@/components/Container";
 
 const pricingPlans = [
   {
@@ -47,8 +48,8 @@ const pricingPlans = [
 
 export default function Pricing() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-24 px-6 bg-gradient-to-bl from-sky-50 via-white to-sky-100">
+      <Container>
         <SectionTitle
           title="Ceník"
           subtitle="Dostupné lekce a tréninkové programy"
@@ -67,8 +68,8 @@ export default function Pricing() {
               <div
                 className={`border rounded-xl p-8 flex flex-col h-full transition-all duration-300 ${
                   plan.highlighted
-                    ? "border-sky-400 bg-gradient-to-br from-sky-50 to-white shadow-xl"
-                    : "border-sky-100 bg-white hover:border-sky-300 shadow-md hover:shadow-lg"
+                    ? "border-sky-300 bg-gradient-to-br from-sky-50 to-white shadow-2xl shadow-sky-200/50 hover:shadow-2xl hover:shadow-sky-300/60"
+                    : "border-sky-100 bg-white hover:border-sky-300 shadow-md hover:shadow-lg hover:shadow-sky-200/50"
                 }`}
               >
                 {plan.highlighted && (
@@ -117,7 +118,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-16 bg-sky-50 rounded-xl p-8 border border-sky-100">
+        <div className="mt-16 bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl p-8 border border-sky-200 shadow-md hover:shadow-lg transition-all duration-300">
           <h3 className="text-lg font-bold text-sky-900 mb-4">
             Máš další otázky?
           </h3>
@@ -129,7 +130,7 @@ export default function Pricing() {
             Napsat zprávu
           </a>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
