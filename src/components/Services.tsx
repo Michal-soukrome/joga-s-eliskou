@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
 
@@ -77,9 +78,10 @@ export default function Services() {
             >
               {/* Image */}
               <div className="h-52 overflow-hidden relative">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
+                  fill
                   className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-sky-950/40 via-transparent to-transparent"></div>

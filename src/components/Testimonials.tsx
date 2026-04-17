@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
 
@@ -64,9 +65,11 @@ export default function Testimonials() {
                 &ldquo;{testimonial.content}&rdquo;
               </p>
               <div className="flex items-center gap-4 pt-6 border-t border-sky-100 group-hover:border-sky-200 transition-colors">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.name}
+                  width={44}
+                  height={44}
                   className="w-11 h-11 rounded-full object-cover transition-all duration-500 group-hover:scale-110"
                 />
                 <div>

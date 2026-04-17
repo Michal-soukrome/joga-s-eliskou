@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const credentials = ["Certifikovaná instruktorka"];
 
 export default function Hero() {
@@ -65,10 +67,12 @@ export default function Hero() {
 
             {/* Image */}
             <div className="absolute inset-0 overflow-hidden z-10 shadow-2xl shadow-sky-400/30">
-              <img
+              <Image
                 src="/assets/eliska.jpg"
                 alt="Eliška Radová — Power Yoga"
+                fill
                 className="w-full h-full object-cover"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-sky-200/30 via-transparent to-transparent"></div>
             </div>
