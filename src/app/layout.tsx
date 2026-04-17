@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import { ReservationProvider } from "@/context/ReservationContext";
+import ReservationModal from "@/components/ReservationModal";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -13,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Power Jóga s Eliškou - Studio Yogaway Beroun",
+  title: "Power Jóga s Eliškou",
   description:
     "Power jóga v Berouně pro začátečníky i mírně pokročilé. Síla, plynulost a klid v jednom pohybu. Rezervace online přes Reservio.",
   keywords:
@@ -26,8 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="cs" className={`${playfair.variable} ${poppins.variable}`}>
-      <body className="bg-sky-50 font-poppins">{children}</body>
+    <html lang="cs" className={`${poppins.variable}`}>
+      <body className="bg-sky-50 font-poppins">
+        <ReservationProvider>
+          {children}
+          <ReservationModal />
+        </ReservationProvider>
+      </body>
     </html>
   );
 }

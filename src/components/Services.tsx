@@ -40,7 +40,7 @@ const services = [
   },
   {
     id: 5,
-    title: "Posílení Jádra",
+    title: "Posílení Středu Těla",
     description:
       "Cvičení zaměřená na posílení středu těla a zlepšení stability",
     image:
@@ -61,7 +61,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
         <SectionTitle
@@ -93,7 +93,7 @@ export default function Services() {
 
               {/* Content */}
               <div className="p-6 border-t border-sky-100 group-hover:border-sky-300 transition-colors duration-300">
-                <h3 className="text-lg font-bold text-sky-900 font-playfair mb-2 group-hover:text-sky-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-sky-900 font-poppins mb-2 group-hover:text-sky-700 transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-sky-600 text-sm leading-relaxed group-hover:text-sky-700 transition-colors duration-300">

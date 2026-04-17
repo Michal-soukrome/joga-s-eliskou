@@ -1,5 +1,8 @@
+"use client";
+
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
+import { useReservation } from "@/context/ReservationContext";
 
 const pricingPlans = [
   {
@@ -47,8 +50,12 @@ const pricingPlans = [
 ];
 
 export default function Pricing() {
+  const { openModal } = useReservation();
   return (
-    <section className="py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50">
+    <section
+      id="pricing"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
+    >
       <Container>
         <SectionTitle
           title="Ceník"
@@ -80,14 +87,14 @@ export default function Pricing() {
                   </div>
                 )}
 
-                <h3 className="text-xl font-bold text-sky-900 font-playfair mb-2">
+                <h3 className="text-xl font-bold text-sky-900 font-poppins mb-2">
                   {plan.name}
                 </h3>
                 <p className="text-sky-600 text-sm mb-6">{plan.description}</p>
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-sky-900 font-playfair">
+                    <span className="text-4xl font-bold text-sky-900 font-poppins">
                       {plan.price}
                     </span>
                     {plan.price !== "Dle typu" && (
@@ -104,15 +111,6 @@ export default function Pricing() {
                     </div>
                   ))}
                 </div>
-
-                <a
-                  href={plan.href}
-                  className={`inline-block ${
-                    plan.highlighted ? "btn-primary" : "btn-outline"
-                  }`}
-                >
-                  {plan.cta}
-                </a>
               </div>
             </div>
           ))}
@@ -120,14 +118,14 @@ export default function Pricing() {
 
         <div className="mt-16 bg-gradient-to-br from-sky-50 to-sky-100 rounded-xl p-8 border border-sky-200 shadow-md hover:shadow-lg transition-all duration-300">
           <h3 className="text-lg font-bold text-sky-900 mb-4">
-            Máš další otázky?
+            Máte další otázky?
           </h3>
           <p className="text-sky-700 mb-6">
             Všechny ceny jsou bez DPH. Individuální lekce a speciální programy
-            na vyžádání. Kontaktuj mě pro více informací.
+            na vyžádání. Spojte se se mnou pro více informací.
           </p>
           <a href="#contact" className="inline-block btn-primary">
-            Napsat zprávu
+            Napište mi zprávu
           </a>
         </div>
       </Container>

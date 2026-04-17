@@ -36,7 +36,10 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50">
+    <section
+      id="faq"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50"
+    >
       <Container size="4xl">
         <SectionTitle
           title="Často kladené otázky"
@@ -65,8 +68,8 @@ export default function FAQ() {
         </div>
 
         <div className="mt-12 bg-gradient-to-r from-sky-500 via-sky-600 to-sky-700 rounded-xl p-8 text-white text-center shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 transition-all duration-300">
-          <h3 className="text-2xl font-bold font-playfair mb-2">
-            Máš další otázku?
+          <h3 className="text-2xl font-bold font-poppins mb-2">
+            Máte další otázku?
           </h3>
           <p className="mb-6 opacity-95">
             Neváhej se ozvat! S radostí ti odpovím na cokoliv.
@@ -75,7 +78,7 @@ export default function FAQ() {
             href="#contact"
             className="inline-block px-6 py-3 bg-white text-sky-600 font-semibold rounded-lg hover:bg-sky-50 hover:shadow-md transition-all duration-200"
           >
-            Kontaktuj mě
+            Spojte se se mnou
           </a>
         </div>
       </Container>

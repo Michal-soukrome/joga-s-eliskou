@@ -5,7 +5,7 @@ const benefits = [
   {
     icon: "strength",
     title: "Zvýšená síla",
-    description: "Posílení celého těla s důrazem na jádro, nohy a paže",
+    description: "Posílení celého těla s důrazem na core, nohy a paže",
   },
   {
     icon: "flexibility",
@@ -101,7 +101,10 @@ const IconComponent = ({ type }: { type: string }) => {
 
 export default function Benefits() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50">
+    <section
+      id="benefits"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50"
+    >
       <Container>
         <SectionTitle
           title="Výhody"
@@ -117,10 +120,10 @@ export default function Benefits() {
               {/* Background accent */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-sky-200 rounded-full -z-10 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-3xl"></div>
 
-              <div className="mb-4 transform group-hover:scale-125 transition-all duration-300">
+              <div className="mb-4 transform group-hover:scale-105 transition-all duration-300">
                 <IconComponent type={benefit.icon} />
               </div>
-              <h3 className="text-xl font-bold text-sky-900 font-playfair mb-3 group-hover:text-sky-700 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-sky-900 font-poppins mb-3 group-hover:text-sky-700 transition-colors duration-300">
                 {benefit.title}
               </h3>
               <p className="text-sky-700 leading-relaxed group-hover:text-sky-800 transition-colors duration-300">

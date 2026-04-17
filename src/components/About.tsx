@@ -1,100 +1,161 @@
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
 
-const CredentialIcon = ({ type }: { type: string }) => {
-  const icons: Record<string, JSX.Element> = {
-    certification: (
-      <svg
-        className="w-6 h-6 text-sky-600"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75-3.54-3.96 4.36-1.29-1.5c-.42-.49-1.14-.63-1.74-.35-.6.28-.87.95-.67 1.58l2.58 6.58c.19.52.71.86 1.3.86s1.1-.34 1.29-.86l5.34-6.78c.2-.63-.07-1.3-.67-1.58-.6-.28-1.32-.14-1.74.35z" />
-      </svg>
-    ),
-    strength: (
-      <svg
-        className="w-6 h-6 text-sky-600"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path d="M14 6l-3.5 5 2.5 3.5-2.5 3.5 3.5 5h4l3.5-5-2.5-3.5 2.5-3.5-3.5-5h-4z" />
-      </svg>
-    ),
-    learning: (
-      <svg
-        className="w-6 h-6 text-sky-600"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-      </svg>
-    ),
-  };
+const chapters = [
+  {
+    label: "Můj začátek",
+    text: `Vystudovala jsem Vysokou školu chemicko-technologickou v Praze. Po škole jsem nastoupila do Všeobecné fakultní nemocnice, kde působím dodnes. Na VŠ jsem začala navštěvovat lekce jógy — ze začátku jen jako protažení těla, zklidnění mysli. Na lekci se mi líbilo, že věnujete čas sami sobě a zanechávalo to ve mně krásně hřejivý pocit.`,
+  },
+  {
+    label: "Hledání stylu",
+    text: `Vystřídala jsem hodně stylů – od zdravotních lekcí, přes hatha jógu, až po dynamické lekce jako vinyasa nebo power jóga. Postupem času jsem zjistila, že ač moje átman prahne po dynamice, ve spoustě případů nacházím útěchu právě v pomalé jemné flow.`,
+  },
+  {
+    label: "Lektorský kurz",
+    text: `Zvědavost a potřeba prohloubit znalosti mě přivedly k lektorskému kurzu s akreditací MŠMT, který jsem absolvovala v Domě jógy v Praze. Kromě nového přátelství jsem získala velmi cenné informace a zkušenosti, které se snažím aplikovat do svých lekcí.`,
+  },
+  {
+    label: "Moje lekce",
+    text: `Cílem mých hodin je najít si chvilku sám pro sebe, oprostit se od vnějšího světa a časem prohlubovat vlastní možnosti. Lekce má jasnou strukturu: začínáme naladěním na dech, pokračujeme rozehřátím, dynamickou částí ve stoje, prací se středem těla a rovnováhou. Uzavíráme šavásanou — hlubokou relaxací. Na závěr ráda pracuji s jemnou aromaterapií nebo zpívanými mantrami.`,
+  },
+];
 
-  return (
-    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-sky-100 to-sky-50 border border-sky-200 mb-3">
-      {icons[type]}
-    </div>
-  );
-};
+const credentials = [
+  { label: "Akreditace MŠMT", sub: "Dům jógy, Praha" },
+  { label: "Power & Vinyasa", sub: "Specializace" },
+  { label: "Aromaterapie", sub: "Součást praxe" },
+];
 
 export default function About() {
   return (
-    <section className="py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50">
+    <section
+      id="about"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50"
+    >
       <Container>
         <SectionTitle
           title="O Elišce"
           subtitle="Cesta k autentičnosti, síle a vnitřnímu míru"
         />
 
-        <div>
-          {/* Left: Story */}
-          <div className="space-y-6">
-            <div className="prose prose-sky max-w-none">
-              <h3 className="text-2xl font-bold text-sky-900 font-playfair mb-4">
-                Proč power jóga?
-              </h3>
-              <p className="text-sky-700 leading-relaxed mb-4">
-                Power józe se věnuji více než 5 let. Moje cesta začala osobním
-                hledáním rovnováhy mezi náročným životem a vnitřním pokojem.
-                Zjistila jsem, že power jóga není jen cvičení — je to
-                transformativní práce s tělem, dechem a myslí.
+        <div className="mt-16 grid lg:grid-cols-[1fr_340px] gap-16 items-start">
+          {/* ── Left: editorial prose with chapter markers ── */}
+          <div className="space-y-0">
+            {/* Opening quote */}
+            <blockquote className="border-l-2 border-sky-300 pl-6 mb-12">
+              <p className="text-sky-800 text-xl leading-relaxed font-poppins italic font-medium">
+                „Jóga je pro mě cesta k sobě samé. Čas, kdy se můžu zastavit a
+                být tady a teď."
               </p>
-              <p className="text-sky-700 leading-relaxed mb-4">
-                S diplomem z Yoga Alliance a pokročilým školením v power józe se
-                věnuji tomu, aby každý student cítil sílu a flexibilitu, kterou
-                v sobě má. Moje lekce jsou dynamické, personalizované a naplněné
-                vědomím.
-              </p>
-              <p className="text-sky-700 leading-relaxed">
-                Věřím, že jóga není o dokonalosti — je o cestě, akceptaci a
-                sebeobjevování.
-              </p>
+            </blockquote>
+
+            {/* Chapters */}
+            <div className="space-y-10">
+              {chapters.map((ch, i) => (
+                <div key={i} className="flex gap-6 group">
+                  {/* Chapter number + line */}
+                  <div className="flex flex-col items-center pt-1 shrink-0">
+                    <div className="w-7 h-7 rounded-full border border-sky-200 bg-sky-50 flex items-center justify-center text-sky-500 text-xs font-semibold font-poppins group-hover:bg-sky-100 group-hover:border-sky-300 transition-colors">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    {i < chapters.length - 1 && (
+                      <div className="w-px flex-1 mt-2 bg-gradient-to-b from-sky-200 to-transparent" />
+                    )}
+                  </div>
+
+                  {/* Text */}
+                  <div className="pb-10">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-sky-400 font-semibold font-poppins mb-2">
+                      {ch.label}
+                    </p>
+                    <p className="text-sky-700 leading-relaxed text-[15px]">
+                      {ch.text}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-sky-200">
-              <div>
-                <p className="text-3xl font-bold text-sky-600 font-playfair">
-                  5+
-                </p>
-                <p className="text-sm text-sky-600">Let praxe</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-sky-600 font-playfair">
-                  200+
-                </p>
-                <p className="text-sm text-sky-600">Absolventů</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-sky-600 font-playfair">
-                  100%
-                </p>
-                <p className="text-sm text-sky-600">Spokojenosti</p>
-              </div>
+            {/* Closing */}
+            <div className="pl-[52px] pt-2">
+              <p className="text-sky-600 text-sm leading-relaxed">
+                <span className="font-semibold text-sky-800">
+                  Jóga je pro každého!
+                </span>{" "}
+                Vítám pokročilé jogíny i úplné začátečníky — vše ráda ukážu a
+                vysvětlím. Po domluvě nabízím také individuální lekce.
+              </p>
+              <p className="mt-6 text-sky-800 font-semibold font-poppins">
+                Těším se na Vás,{" "}
+                <span className="text-amber-500">Namasté 🙏</span>
+              </p>
             </div>
           </div>
+
+          {/* ── Right: sticky credential card ── */}
+          <aside className="lg:sticky lg:top-28 space-y-4">
+            {/* Profile card */}
+            <div className="bg-white border border-sky-100 rounded-2xl p-6 shadow-sm shadow-sky-100/50">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-200 to-sky-100 flex items-center justify-center text-sky-600 font-bold font-poppins text-lg">
+                  E
+                </div>
+                <div>
+                  <p className="font-semibold text-sky-900 font-poppins">
+                    Eliška Radová
+                  </p>
+                  <p className="text-xs text-sky-400 mt-0.5 font-poppins">
+                    Certifikovaná instruktorka
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-2 border-t border-sky-50 pt-4">
+                {credentials.map((c, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-sky-50/60 hover:bg-sky-50 transition-colors"
+                  >
+                    <span className="mt-0.5 text-sky-400 text-sm">✓</span>
+                    <div>
+                      <p className="text-sky-800 text-sm font-semibold font-poppins leading-none">
+                        {c.label}
+                      </p>
+                      <p className="text-sky-400 text-xs mt-1 font-poppins">
+                        {c.sub}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Class structure card */}
+            <div className="bg-white border border-sky-100 rounded-2xl p-6 shadow-sm shadow-sky-100/50">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-sky-400 font-semibold font-poppins mb-4">
+                Struktura lekce
+              </p>
+              <ol className="space-y-3">
+                {[
+                  "Naladěte se na dech",
+                  "Rozehřátí celého těla",
+                  "Dynamická část ve stoje",
+                  "Střed těla & rovnováha",
+                  "Plynulá sekvence",
+                  "Šavásana — relaxace",
+                ].map((step, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <span className="w-5 h-5 rounded-full bg-sky-100 text-sky-500 text-[10px] font-bold flex items-center justify-center font-poppins shrink-0">
+                      {i + 1}
+                    </span>
+                    <span className="text-sky-700 text-sm font-poppins">
+                      {step}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </aside>
         </div>
       </Container>
     </section>

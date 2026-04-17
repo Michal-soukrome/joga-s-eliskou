@@ -1,88 +1,186 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
 
 const testimonials = [
   {
     id: 1,
-    name: "Petra Novotná",
-    role: "Podnikatelka",
+    name: "Míša",
+    role: "",
     content:
-      "Eliška změnila můj život svým osobním přístupem. Cítím se silnější, klidnější a více vyrovnaná než kdy dřív.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+      "Eliška je skvělá lektorka, trpělivá, opraví, co je třeba a lekci vede profesionálně a je vidět, že si na nich dává záležet",
     rating: 5,
   },
   {
     id: 2,
-    name: "Tomáš Kovář",
-    role: "Sportovec",
+    name: "—",
+    role: "",
     content:
-      "Józinské programy mi pomohly se zotavit rychleji a výrazně zlepšily mou flexibilitu. Velmi doporučuji!",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+      "Lekce s Eliškou mě vždycky skvěle nastartují – fyzicky i psychicky!",
     rating: 5,
   },
   {
     id: 3,
-    name: "Jana Procházková",
-    role: "Vedoucí projektů",
+    name: "—",
+    role: "",
     content:
-      "Konečně jsem našla praxi, která se hodí k mému rušnému životnímu stylu. Eliška je úžasná instruktořka.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+      "Chodím už od začátku a jsem velmi spokojený s přístupem Elišky. Vždy se přizpůsobí přání skupiny, jestli lekci udělat náročnější nebo dopohody. Člověk se zapotí, ale zároveň odchází odpočatý a plný energie. Všem, kdo chtějí udělat něco pro své tělo a poznat fajn kolektiv, určitě neváhejte a Spojte se se mnou 😊",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "—",
+    role: "",
+    content:
+      "Absolutně nejlepší jóga v Berouně!😍 Power jóga je pro mě ideální volba. Na lekci u Elišky si zamakám, ale zároveň i zklidním svoji mysl.🙏🏻",
     rating: 5,
   },
 ];
 
+function StarRating({ count }: { count: number }) {
+  return (
+    <div className="flex gap-0.5 mb-5">
+      {[...Array(count)].map((_, i) => (
+        <span key={i} className="text-amber-400 text-base">
+          ★
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function getCardStyle(offset: number, total: number) {
+  // offset: 0 = active, 1 = next, -1 = prev, etc.
+  const abs = Math.abs(offset);
+  if (abs > 2) return null; // don't render far-away cards
+
+  const scale = offset === 0 ? 1 : offset === 1 ? 0.93 : 0.86;
+  const translateX =
+    offset === 0
+      ? 0
+      : offset === 1
+        ? 62
+        : offset === -1
+          ? -62
+          : offset === 2
+            ? 110
+            : -110;
+  const translateY = abs === 0 ? 0 : abs === 1 ? 14 : 24;
+  const zIndex = abs === 0 ? 30 : abs === 1 ? 20 : 10;
+  const opacity = abs === 0 ? 1 : abs === 1 ? 0.7 : 0.4;
+
+  return { scale, translateX, translateY, zIndex, opacity };
+}
+
 export default function Testimonials() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const total = testimonials.length;
+
+  const next = useCallback(() => setActive((a) => (a + 1) % total), [total]);
+  const prev = useCallback(
+    () => setActive((a) => (a - 1 + total) % total),
+    [total],
+  );
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(next, 4000);
+    return () => clearInterval(id);
+  }, [paused, next]);
+
   return (
     <section
       id="testimonials"
-      className="py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50 overflow-hidden"
     >
       <Container>
         <SectionTitle
-          title="Ohlasy"
+          title="Recenze"
           subtitle="Skutečné zkušenosti od lidí, kteří transformovali svou praxi"
           accentColor="violet"
         />
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="bg-white border border-sky-100 p-8 hover:border-sky-300 hover:shadow-lg hover:shadow-sky-200/30 transition-all duration-300 group rounded-lg"
-            >
-              <div className="flex gap-1 mb-6">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-lg">
-                    ★
-                  </span>
-                ))}
-              </div>
-              <p className="text-sky-700 mb-8 leading-relaxed text-sm group-hover:text-sky-800 transition-colors duration-300">
-                &ldquo;{testimonial.content}&rdquo;
-              </p>
-              <div className="flex items-center gap-4 pt-6 border-t border-sky-100 group-hover:border-sky-200 transition-colors">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  width={44}
-                  height={44}
-                  className="w-11 h-11 rounded-full object-cover transition-all duration-500 group-hover:scale-110"
-                />
-                <div>
-                  <p className="font-semibold text-sky-900 text-sm">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-xs text-sky-500 mt-0.5">
-                    {testimonial.role}
-                  </p>
+        {/* Carousel */}
+        <div
+          className="relative flex items-center justify-center"
+          style={{ height: 340 }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {testimonials.map((t, i) => {
+            const offset = (((i - active + total) % total) + total) % total;
+            // Remap: 0=active, 1=right, 2=far-right, total-1=left, total-2=far-left
+            const remapped = offset > total / 2 ? offset - total : offset;
+            const style = getCardStyle(remapped, total);
+            if (!style) return null;
+
+            const { scale, translateX, translateY, zIndex, opacity } = style;
+
+            return (
+              <div
+                key={t.id}
+                onClick={() => remapped !== 0 && setActive(i)}
+                className="absolute w-full max-w-md bg-white border border-sky-100 rounded-2xl p-8 shadow-sm"
+                style={{
+                  transform: `translateX(${translateX}%) translateY(${translateY}px) scale(${scale})`,
+                  zIndex,
+                  opacity,
+                  transition: "all 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
+                  cursor: remapped !== 0 ? "pointer" : "default",
+                  willChange: "transform, opacity",
+                }}
+              >
+                <StarRating count={t.rating} />
+                <p className="text-sky-700 leading-relaxed text-sm mb-6 line-clamp-4">
+                  &ldquo;{t.content}&rdquo;
+                </p>
+                <div className="flex items-center gap-3 pt-5 border-t border-sky-100">
+                  <div className="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-sky-400 text-xs font-semibold">
+                    {t.name !== "—" ? t.name[0] : "★"}
+                  </div>
+                  <p className="font-semibold text-sky-900 text-sm">{t.name}</p>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Controls */}
+        <div className="flex items-center justify-center gap-6 mt-10">
+          <button
+            onClick={prev}
+            className="w-10 h-10 rounded-full border border-sky-200 text-sky-400 hover:border-sky-400 hover:text-sky-600 transition-colors flex items-center justify-center text-lg"
+            aria-label="Předchozí"
+          >
+            ‹
+          </button>
+
+          <div className="flex gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className="transition-all duration-300 rounded-full"
+                style={{
+                  width: i === active ? 24 : 8,
+                  height: 8,
+                  background: i === active ? "#38bdf8" : "#bae6fd",
+                }}
+                aria-label={`Přejít na ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={next}
+            className="w-10 h-10 rounded-full border border-sky-200 text-sky-400 hover:border-sky-400 hover:text-sky-600 transition-colors flex items-center justify-center text-lg"
+            aria-label="Další"
+          >
+            ›
+          </button>
         </div>
       </Container>
     </section>

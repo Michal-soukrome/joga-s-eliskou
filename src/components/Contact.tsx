@@ -2,6 +2,7 @@
 
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
+import { useReservation } from "@/context/ReservationContext";
 
 const contactItems = [
   {
@@ -32,10 +33,11 @@ const contactItems = [
 ];
 
 export default function Contact() {
+  const { openModal } = useReservation();
   return (
     <section
       id="contact"
-      className="py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
         <SectionTitle
@@ -77,7 +79,7 @@ export default function Contact() {
             <p className="text-xs uppercase tracking-[0.3em] text-sky-500 font-semibold mb-3">
               Online rezervace
             </p>
-            <h3 className="text-2xl font-bold text-sky-900 font-playfair mb-4 leading-snug">
+            <h3 className="text-2xl font-bold text-sky-900 font-poppins mb-4 leading-snug">
               Rezervujte si místo
               <br />
               na nejbližší lekci
@@ -86,9 +88,9 @@ export default function Contact() {
               Rezervace probíhá přes platformu Reservio. Stačí vybrat datum a
               zarezervovat si místo jednoduše online.
             </p>
-            <a href="#reservations" className="inline-block btn-primary">
+            <button onClick={openModal} className="inline-block btn-primary">
               Rezervovat přes Reservio
-            </a>
+            </button>
           </div>
         </div>
       </Container>
