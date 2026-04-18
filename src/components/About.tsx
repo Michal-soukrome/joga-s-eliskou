@@ -45,7 +45,7 @@ export default function About() {
             <blockquote className="border-l-2 border-sky-300 pl-6 mb-12">
               <p className="text-sky-800 text-xl leading-relaxed font-poppins italic font-medium">
                 „Jóga je pro mě cesta k sobě samé. Čas, kdy se můžu zastavit a
-                být tady a teď."
+                být tady a teď.&quot;
               </p>
             </blockquote>
 
