@@ -93,10 +93,10 @@ export default function Services() {
 
               {/* Content */}
               <div className="p-6 border-t border-sky-100 group-hover:border-sky-300 transition-colors duration-300">
-                <h3 className="text-lg font-bold text-sky-900 font-poppins mb-2 group-hover:text-sky-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-sky-900 font-poppins mb-3 group-hover:text-sky-700 transition-colors duration-300">
                   {service.title}
                 </h3>
-                <p className="text-sky-600 text-sm leading-relaxed group-hover:text-sky-700 transition-colors duration-300">
+                <p className="text-sky-600 text-base leading-relaxed group-hover:text-sky-700 transition-colors duration-300">
                   {service.description}
                 </p>
               </div>

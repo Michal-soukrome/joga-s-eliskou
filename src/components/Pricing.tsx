@@ -87,10 +87,12 @@ export default function Pricing() {
                   </div>
                 )}
 
-                <h3 className="text-xl font-bold text-sky-900 font-poppins mb-2">
+                <h3 className="text-lg font-bold text-sky-900 font-poppins mb-2">
                   {plan.name}
                 </h3>
-                <p className="text-sky-600 text-sm mb-6">{plan.description}</p>
+                <p className="text-sky-600 text-base mb-6">
+                  {plan.description}
+                </p>
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">

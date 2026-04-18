@@ -115,18 +115,18 @@ export default function Benefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="group relative bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-xl p-8 hover:border-sky-300 hover:shadow-2xl hover:shadow-sky-200/40 transition-all duration-300"
+              className="group relative bg-gradient-to-br from-sky-100/75 to-white border border-sky-100 rounded-xl p-8 hover:border-sky-300 hover:shadow-2xl hover:shadow-sky-200/40 transition-all duration-300"
             >
               {/* Background accent */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-sky-200 rounded-full -z-10 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-3xl"></div>
 
-              <div className="mb-4 transform group-hover:scale-105 transition-all duration-300">
+              <div className="!hidden mb-4 transform group-hover:scale-105 transition-all duration-300">
                 <IconComponent type={benefit.icon} />
               </div>
-              <h3 className="text-xl font-bold text-sky-900 font-poppins mb-3 group-hover:text-sky-700 transition-colors duration-300">
+              <h3 className="text-lg font-bold text-sky-900 font-poppins mb-3 group-hover:text-sky-700 transition-colors duration-300">
                 {benefit.title}
               </h3>
-              <p className="text-sky-700 leading-relaxed group-hover:text-sky-800 transition-colors duration-300">
+              <p className="text-sky-700 text-base leading-relaxed group-hover:text-sky-800 transition-colors duration-300">
                 {benefit.description}
               </p>
             </div>

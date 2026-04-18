@@ -61,12 +61,12 @@ export default function Contact() {
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="text-sky-700 hover:text-sky-900 transition-all duration-200 text-sm leading-relaxed whitespace-pre-line font-medium"
+                    className="text-sky-700 hover:text-sky-900 transition-all duration-200 text-base leading-relaxed whitespace-pre-line font-medium"
                   >
                     {item.value}
                   </a>
                 ) : (
-                  <p className="text-sky-700 text-sm leading-relaxed whitespace-pre-line font-medium">
+                  <p className="text-sky-700 text-base leading-relaxed whitespace-pre-line font-medium">
                     {item.value}
                   </p>
                 )}
@@ -84,7 +84,7 @@ export default function Contact() {
               <br />
               na nejbližší lekci
             </h3>
-            <p className="text-sky-600 text-sm leading-relaxed mb-8">
+            <p className="text-sky-600 text-base leading-relaxed mb-8">
               Rezervace probíhá přes platformu Reservio. Stačí vybrat datum a
               zarezervovat si místo jednoduše online.
             </p>

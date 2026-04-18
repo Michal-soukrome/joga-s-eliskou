@@ -134,14 +134,16 @@ export default function Testimonials() {
                 }}
               >
                 <StarRating count={t.rating} />
-                <p className="text-sky-700 leading-relaxed text-sm mb-6 line-clamp-4">
+                <p className="text-sky-700 leading-relaxed text-base mb-6 line-clamp-4">
                   &ldquo;{t.content}&rdquo;
                 </p>
                 <div className="flex items-center gap-3 pt-5 border-t border-sky-100">
                   <div className="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-sky-400 text-xs font-semibold">
                     {t.name !== "—" ? t.name[0] : "★"}
                   </div>
-                  <p className="font-semibold text-sky-900 text-sm">{t.name}</p>
+                  <p className="font-semibold text-sky-900 text-base">
+                    {t.name}
+                  </p>
                 </div>
               </div>
             );

@@ -53,7 +53,7 @@ export default function FAQ() {
               className="group bg-white border border-sky-100 rounded-lg overflow-hidden hover:border-sky-300 hover:shadow-md transition-all duration-300"
             >
               <summary className="cursor-pointer px-6 py-4 flex items-center justify-between hover:bg-sky-50 transition-all duration-200">
-                <h3 className="font-semibold text-sky-900 text-lg pr-4 group-hover:text-sky-700 transition-colors">
+                <h3 className="font-semibold text-sky-900 text-base pr-4 group-hover:text-sky-700 transition-colors">
                   {faq.question}
                 </h3>
                 <span className="flex-shrink-0 text-sky-500 group-open:rotate-180 transition-transform text-xl">
@@ -61,23 +61,20 @@ export default function FAQ() {
                 </span>
               </summary>
               <div className="px-6 py-4 text-sky-700 border-t border-sky-100 bg-gradient-to-br from-sky-50 to-sky-100/50">
-                <p className="leading-relaxed">{faq.answer}</p>
+                <p className="text-base leading-relaxed">{faq.answer}</p>
               </div>
             </details>
           ))}
         </div>
 
         <div className="mt-12 bg-gradient-to-r from-sky-500 via-sky-600 to-sky-700 rounded-xl p-8 text-white text-center shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 transition-all duration-300">
-          <h3 className="text-2xl font-bold font-poppins mb-2">
+          <h3 className="text-2xl font-bold font-poppins mb-3">
             Máte další otázku?
           </h3>
-          <p className="mb-6 opacity-95">
+          <p className="mb-6 text-lg opacity-95">
             Neváhej se ozvat! S radostí ti odpovím na cokoliv.
           </p>
-          <a
-            href="#contact"
-            className="inline-block px-6 py-3 bg-white text-sky-600 font-semibold rounded-lg hover:bg-sky-50 hover:shadow-md transition-all duration-200"
-          >
+          <a href="#contact" className="!w-fit !mx-auto btn-secondary">
             Spojte se se mnou
           </a>
         </div>
