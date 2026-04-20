@@ -7,22 +7,22 @@ import { useReservation } from "@/context/ReservationContext";
 const contactItems = [
   {
     label: "Email",
-    value: "eliska@yogaway.cz",
-    href: "mailto:eliska@yogaway.cz",
+    value: "e.radova99@gmail.com",
+    href: "mailto:e.radova99@gmail.com",
   },
   {
     label: "Telefon",
-    value: "+420 XXX XXX XXX",
-    href: "tel:+420000000000",
+    value: "+420 774 750 600",
+    href: "tel:+420774750600",
   },
   {
     label: "Adresa",
-    value: "Na Parkáně 367, Beroun 1\nStudio Yogaway",
-    href: null,
+    value: "Na Parkáně 367/14, Beroun 26601",
+    href: "https://maps.app.goo.gl/3pbzePJYsYuyo2NDA",
   },
   {
     label: "Rozvrh lekce",
-    value: "Středa 19:45 – 20:45",
+    value: "Středa 19:45 - 20:45",
     href: null,
   },
   {
@@ -37,7 +37,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-20 py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
         <SectionTitle
@@ -47,13 +47,13 @@ export default function Contact() {
           isDark={true}
         />
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left: contact grid */}
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {contactItems.map((item) => (
               <div
                 key={item.label}
-                className="border-l-2 border-sky-300 pl-5 hover:border-sky-500 hover:pl-6 transition-all duration-200 group"
+                className="border-l-2 border-sky-300 pl-5 hover:border-sky-500 hover:pl-6 transition-all duration-200 group group"
               >
                 <p className="text-xs uppercase tracking-[0.2em] text-sky-500 mb-2 group-hover:text-sky-700 transition-colors duration-200 font-semibold">
                   {item.label}
@@ -61,7 +61,8 @@ export default function Contact() {
                 {item.href ? (
                   <a
                     href={item.href}
-                    className="text-sky-700 hover:text-sky-900 transition-all duration-200 text-base leading-relaxed whitespace-pre-line font-medium"
+                    className="text-sky-700 hover:text-sky-900 transition-all duration-200 text-base leading-relaxed whitespace-pre-line font-medium group-hover:underline"
+                    target="_blank"
                   >
                     {item.value}
                   </a>

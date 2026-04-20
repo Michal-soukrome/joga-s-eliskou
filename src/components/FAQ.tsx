@@ -10,27 +10,27 @@ const faqs = [
   {
     question: "Jaké cvičební vybavení budu potřebovat?",
     answer:
-      "Stačí pohodlné oblečení a láhev vody. Všechno ostatní je k dispozici ve studiu.",
+      "Stačí pohodlné oblečení. Podložky i pomůcky jsou ve studiu k dispozici zdarma.",
   },
-  {
-    question: "Jak dlouho před zlepšením pocítím změny?",
-    answer:
-      "Většina studentů cítí první změny (lepší spánek, menší stres) již po 2-3 lekcích. Výrazné fyzické změny přicházejí po 4-6 týdnech pravidelného tréninku.",
-  },
+
   {
     question: "Mohu přijít, pokud mám zranění nebo bolest?",
     answer:
-      "Ano, ale informuj mě před lekcí. Nabídnu ti modifikace cvičení, aby byla lekce pro tebe bezpečná a prospěšná.",
+      "Každý cvičí podle svých možností. V případě zranění nebo zdravotních omezení mi to prosím dej před lekcí vědět, abych mohla cviky upravit. Lekce není vhodná při akutním onemocnění ani v těhotenství.",
   },
   {
     question: "Jak se dostanu do studia?",
     answer:
-      "Studio Yogaway je v Berouně na adrese Na Parkáně 367. Je snadno dostupné autem a je zde parkoviště. Také jezdí autobusy z centra města.",
+      "Studio Yogaway je v Berouně na adrese Na Parkáně 367/14, hned za autorizačním servisem vozů ŠKODA. Auto si můžete zaparkovat na nedalekém parkovišti (po 18.hod je bezplatné), nebo využít autobus (zastávka U černého koně vzdálená asi 600 m).",
   },
   {
     question: "Mohu si koupit permanentku?",
     answer:
-      "Ano! Permanentka 10× lekce se prodává za 1800 Kč. Je neomezené doby platnosti a můžeš si ji koupit kdykoliv během lekce nebo online.",
+      "Ano! Permanentka 10× lekce se prodává za 1800 Kč. Má platnost 12 týdnů a můžeš si ji koupit na každé lekci.",
+  },
+  {
+    question: "Mohu platit hotově nebo kartou?",
+    answer: "Na lekcích je možné platit hotově nebo převodem přes QR kód.",
   },
 ];
 
@@ -38,7 +38,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50"
     >
       <Container size="4xl">
         <SectionTitle

@@ -1,5 +1,6 @@
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
+import Image from "next/image";
 
 const chapters = [
   {
@@ -8,7 +9,7 @@ const chapters = [
   },
   {
     label: "Hledání stylu",
-    text: `Vystřídala jsem hodně stylů – od zdravotních lekcí, přes hatha jógu, až po dynamické lekce jako vinyasa nebo power jóga. Postupem času jsem zjistila, že ač moje átman prahne po dynamice, ve spoustě případů nacházím útěchu právě v pomalé jemné flow.`,
+    text: `Vystřídala jsem hodně stylů - od zdravotních lekcí, přes hatha jógu, až po dynamické lekce jako vinyasa nebo power jóga. Postupem času jsem zjistila, že ač moje átman prahne po dynamice, ve spoustě případů nacházím útěchu právě v pomalé jemné flow.`,
   },
   {
     label: "Lektorský kurz",
@@ -24,24 +25,24 @@ const credentials = [
   { label: "Akreditace MŠMT", sub: "Dům jógy, Praha" },
   { label: "Power & Vinyasa", sub: "Specializace" },
   { label: "Aromaterapie", sub: "Součást praxe" },
+  { label: "Pranajáma", sub: "Ukázka dechových technik" },
+  {
+    label: "Adjustmenty",
+    sub: "Jemné vedení těla pro správné nastavení v ásanách.",
+  },
 ];
 
 export default function About() {
   return (
     <section
       id="about"
-      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tr from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
-        <SectionTitle
-          title="O Elišce"
-          subtitle="Cesta k autentičnosti, síle a vnitřnímu míru"
-        />
-
+        <SectionTitle title="O mně" />
         <div className="mt-16 grid lg:grid-cols-[1fr_340px] gap-16 items-start">
           {/* ── Left: editorial prose with chapter markers ── */}
           <div className="space-y-0">
-            {/* Opening quote */}
             <blockquote className="border-l-2 border-sky-300 pl-6 mb-12">
               <p className="text-sky-800 text-xl leading-relaxed font-poppins italic font-medium">
                 „Jóga je pro mě cesta k sobě samé. Čas, kdy se můžu zastavit a
@@ -49,21 +50,15 @@ export default function About() {
               </p>
             </blockquote>
 
-            {/* Chapters */}
             <div className="space-y-10">
               {chapters.map((ch, i) => (
                 <div key={i} className="flex gap-6 group">
-                  {/* Chapter number + line */}
                   <div className="flex flex-col items-center pt-1 shrink-0">
-                    <div className="w-7 h-7 rounded-full border border-sky-200 bg-sky-50 flex items-center justify-center text-sky-500 text-xs font-semibold font-poppins group-hover:bg-sky-100 group-hover:border-sky-300 transition-colors">
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
+                    <div className="w-7 h-7 rounded-full border border-sky-200 bg-sky-50 flex items-center justify-center text-sky-500 text-xs font-semibold font-poppins group-hover:bg-sky-100 group-hover:border-sky-300 transition-colors" />
                     {i < chapters.length - 1 && (
                       <div className="w-px flex-1 mt-2 bg-gradient-to-b from-sky-200 to-transparent" />
                     )}
                   </div>
-
-                  {/* Text */}
                   <div className="pb-10">
                     <p className="text-[11px] uppercase tracking-[0.2em] text-sky-400 font-semibold font-poppins mb-2">
                       {ch.label}
@@ -76,7 +71,6 @@ export default function About() {
               ))}
             </div>
 
-            {/* Closing */}
             <div className="pl-[52px] pt-2">
               <p className="text-sky-600 text-sm leading-relaxed">
                 <span className="font-semibold text-sky-800">
@@ -92,25 +86,36 @@ export default function About() {
             </div>
           </div>
 
-          {/* ── Right: sticky credential card ── */}
+          {/* ── Right: sticky sidebar ── */}
           <aside className="lg:sticky lg:top-28 space-y-4">
-            {/* Profile card */}
-            <div className="bg-white border border-sky-100 rounded-2xl p-6 shadow-sm shadow-sky-100/50">
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sky-200 to-sky-100 flex items-center justify-center text-sky-600 font-bold font-poppins text-lg">
-                  E
-                </div>
-                <div>
-                  <p className="font-semibold text-sky-900 font-poppins">
-                    Eliška Radová
-                  </p>
-                  <p className="text-xs text-sky-400 mt-0.5 font-poppins">
-                    Certifikovaná instruktorka
-                  </p>
-                </div>
-              </div>
+            {/* ── Trainer image ── */}
+            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-sky-50 border border-sky-100 shadow-sm shadow-sky-100/50">
+              <Image
+                src="/assets/IMG_0001.webp"
+                alt="Eliška Radová - instruktorka jógy"
+                fill
+                className="object-cover object-top"
+                sizes="340px"
+                priority
+              />
 
-              <div className="space-y-2 border-t border-sky-50 pt-4">
+              {/* Subtle gradient overlay at bottom for name tag */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-sky-950/40 to-transparent rounded-b-2xl" />
+
+              {/* Name tag */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white font-semibold font-poppins text-sm leading-none">
+                  Eliška Radová
+                </p>
+                <p className="text-white/70 text-xs mt-1 font-poppins">
+                  Certifikovaná instruktorka jógy
+                </p>
+              </div>
+            </div>
+
+            {/* ── Credential card ── */}
+            <div className="bg-white border border-sky-100 rounded-2xl p-6 shadow-sm shadow-sky-100/50">
+              <div className="space-y-2">
                 {credentials.map((c, i) => (
                   <div
                     key={i}
@@ -128,32 +133,6 @@ export default function About() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Class structure card */}
-            <div className="bg-white border border-sky-100 rounded-2xl p-6 shadow-sm shadow-sky-100/50">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-sky-400 font-semibold font-poppins mb-4">
-                Struktura lekce
-              </p>
-              <ol className="space-y-3">
-                {[
-                  "Naladěte se na dech",
-                  "Rozehřátí celého těla",
-                  "Dynamická část ve stoje",
-                  "Střed těla & rovnováha",
-                  "Plynulá sekvence",
-                  "Šavásana — relaxace",
-                ].map((step, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <span className="w-5 h-5 rounded-full bg-sky-100 text-sky-500 text-[10px] font-bold flex items-center justify-center font-poppins shrink-0">
-                      {i + 1}
-                    </span>
-                    <span className="text-sky-700 text-sm font-poppins">
-                      {step}
-                    </span>
-                  </li>
-                ))}
-              </ol>
             </div>
           </aside>
         </div>

@@ -1,20 +1,61 @@
 "use client";
-
 import Container from "@/components/Container";
 import { useReservation } from "@/context/ReservationContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const socials = [
+  {
+    label: "Facebook",
+    href: "https://facebook.com/YOUR_PAGE",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/YOUR_HANDLE",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+];
 
 export default function Header() {
   const { openModal } = useReservation();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 w-full h-20 bg-white/95 backdrop-blur-sm border-b border-sky-100 z-50 shadow-sm shadow-sky-100/50">
+    <header
+      className={`fixed top-0 w-full h-20 z-50 transition-all duration-300 border-b border-sky-100 shadow-sm shadow-sky-100/50 backdrop-blur-md ${
+        scrolled ? "bg-white/50" : "bg-white/80"
+      }`}
+    >
       <nav className="px-6 h-full">
         <Container className="h-full flex items-center justify-between">
           {/* Logo */}
           <div className="h-full flex items-center gap-3">
-            <div className="w-px h-7 bg-sky-500"></div>
+            <div className="w-px h-7 bg-sky-500" />
             <span className="font-poppins text-xl font-bold text-sky-900 tracking-tight">
               Power jóga s <span className="text-sky-500">Eliškou</span>
             </span>
@@ -22,163 +63,114 @@ export default function Header() {
 
           {/* Desktop menu */}
           <ul className="hidden lg:flex items-center gap-8">
-            <li>
-              <a
-                href="#about"
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75"
-              >
-                O mě
-              </a>
-            </li>
-            <li>
-              <a
-                href="#services"
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75"
-              >
-                Lekce
-              </a>
-            </li>
-            <li>
-              <a
-                href="#benefits"
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75"
-              >
-                Benefity
-              </a>
-            </li>
-            <li>
-              <a
-                href="#pricing"
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75"
-              >
-                Ceník
-              </a>
-            </li>
-            <li>
-              <a
-                href="#testimonials"
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75"
-              >
-                Recenze
-              </a>
-            </li>
-            <li>
-              <a
-                href="#faq"
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75"
-              >
-                FAQ
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75"
-              >
-                Kontakt
-              </a>
-            </li>
+            {[
+              ["O mně", "#about"],
+              ["Lekce", "#services"],
+              ["Ceník", "#pricing"],
+              ["Recenze", "#testimonials"],
+              ["Galerie", "#gallery"],
+              ["FAQ", "#faq"],
+              ["Kontakt", "#contact"],
+            ].map(([label, href]) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+
             <li>
               <button onClick={openModal} className="btn-primary !uppercase">
                 Rezervovat
               </button>
             </li>
+
+            {/* Divider */}
+            <li aria-hidden className="w-px h-4 bg-sky-200 rounded-full" />
+            {/* Social icons */}
+            {socials.map(({ label, href, icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-sky-400 hover:text-sky-600 transition-colors duration-200"
+                >
+                  {icon}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          {/* Hamburger button */}
+          {/* Hamburger */}
           <button
-            className="lg:hidden relative w-8 h-8 flex flex-col justify-center items-center group"
+            className="lg:hidden relative w-8 h-8 flex flex-col justify-center items-center"
             onClick={() => setOpen(!open)}
           >
             <span
-              className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${
-                open ? "rotate-45 translate-y-1.5" : ""
-              }`}
-            ></span>
+              className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""}`}
+            />
             <span
-              className={`w-6 h-0.5 bg-sky-700 rounded my-1 transition-all duration-300 ${
-                open ? "opacity-0" : ""
-              }`}
-            ></span>
+              className={`w-6 h-0.5 bg-sky-700 rounded my-1 transition-all duration-300 ${open ? "opacity-0" : ""}`}
+            />
             <span
-              className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${
-                open ? "-rotate-45 -translate-y-1.5" : ""
-              }`}
-            ></span>
+              className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""}`}
+            />
           </button>
         </Container>
       </nav>
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden fixed top-16 left-0 w-full bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-lg shadow-sky-100/40 transition-all duration-300 overflow-hidden ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        className={`lg:hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-lg shadow-sky-100/40 transition-all duration-300 overflow-hidden ${
+          open ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col px-6 py-6 gap-4 text-center">
+        <ul className="flex flex-col px-6 py-6 gap-6 text-start">
+          {[
+            ["O mně", "#about"],
+            ["Lekce", "#services"],
+            ["Ceník", "#pricing"],
+            ["Recenze", "#testimonials"],
+            ["Galerie", "#gallery"],
+            ["FAQ", "#faq"],
+            ["Kontakt", "#contact"],
+          ].map(([label, href]) => (
+            <li key={href}>
+              <a
+                href={href}
+                onClick={() => setOpen(false)}
+                className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+
+          {/* Social row */}
           <li>
-            <a
-              href="#about"
-              onClick={() => setOpen(false)}
-              className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
-            >
-              O mě
-            </a>
+            <div className="flex items-center gap-6 pt-6 border-t border-sky-100">
+              {socials.map(({ label, href, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sky-400 hover:text-sky-600 transition-colors text-sm font-medium"
+                >
+                  {icon}
+                  <span className="text-xs uppercase tracking-[0.15em]">
+                    {label}
+                  </span>
+                </a>
+              ))}
+            </div>
           </li>
-          <li>
-            <a
-              href="#services"
-              onClick={() => setOpen(false)}
-              className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
-            >
-              Lekce
-            </a>
-          </li>
-          <li>
-            <a
-              href="#benefits"
-              onClick={() => setOpen(false)}
-              className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
-            >
-              Benefity
-            </a>
-          </li>
-          <li>
-            <a
-              href="#pricing"
-              onClick={() => setOpen(false)}
-              className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
-            >
-              Ceník
-            </a>
-          </li>
-          <li>
-            <a
-              href="#testimonials"
-              onClick={() => setOpen(false)}
-              className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
-            >
-              Recenze
-            </a>
-          </li>
-          <li>
-            <a
-              href="#faq"
-              onClick={() => setOpen(false)}
-              className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
-            >
-              FAQ
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
-            >
-              Kontakt
-            </a>
-          </li>
+
           <li>
             <button
               onClick={() => {

@@ -4,9 +4,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-tl from-sky-50/50 via-white to-sky-100/50 text-sky-600 py-14 px-6 border-t border-sky-100">
+    <footer className="bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50 text-sky-600 py-14 px-6 border-t border-sky-100">
       <Container>
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
@@ -17,65 +17,58 @@ export default function Footer() {
             </div>
             <p className="text-sm leading-relaxed max-w-sm">
               Certifikovaná instruktorka power jógy v Berouně. Lekce pro
-              začátečníky i mírně pokročilé — síla, plynulost a klid v jednom
+              začátečníky i mírně pokročilé — síla, mobilita a dech v jednom
               pohybu.
             </p>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-sky-300 font-semibold mb-5">
-              Navigace
-            </p>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <a
-                  href="#services"
-                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
-                >
-                  Lekce & Programy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonials"
-                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
-                >
-                  Recenze
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
-                >
-                  Kontakt
-                </a>
-              </li>
-            </ul>
-          </div>
-
           {/* Social */}
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-sky-200 font-semibold mb-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-sky-400 font-semibold mb-5">
               sociální sítě
             </p>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href="https://www.instagram.com/e.radova99/"
-                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
+                  className="hover:underline transition-all duration-200 hover:translate-x-1 flex items-center gap-3"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="0.5"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
                   Instagram
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="hover:text-sky-100 transition-all duration-200 hover:translate-x-1"
+                  className="hover:underline transition-all duration-200 hover:translate-x-1 flex items-center gap-3"
                 >
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4"
+                    fill="currentColor"
+                  >
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
                   Facebook
                 </a>
               </li>

@@ -15,15 +15,15 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "—",
+    name: "Eva",
     role: "",
     content:
-      "Lekce s Eliškou mě vždycky skvěle nastartují – fyzicky i psychicky!",
+      "Lekce s Eliškou mě vždycky skvěle nastartují - fyzicky i psychicky!",
     rating: 5,
   },
   {
     id: 3,
-    name: "—",
+    name: "Vašek",
     role: "",
     content:
       "Chodím už od začátku a jsem velmi spokojený s přístupem Elišky. Vždy se přizpůsobí přání skupiny, jestli lekci udělat náročnější nebo dopohody. Člověk se zapotí, ale zároveň odchází odpočatý a plný energie. Všem, kdo chtějí udělat něco pro své tělo a poznat fajn kolektiv, určitě neváhejte a Spojte se se mnou 😊",
@@ -31,7 +31,7 @@ const testimonials = [
   },
   {
     id: 4,
-    name: "—",
+    name: "Denisa",
     role: "",
     content:
       "Absolutně nejlepší jóga v Berouně!😍 Power jóga je pro mě ideální volba. Na lekci u Elišky si zamakám, ale zároveň i zklidním svoji mysl.🙏🏻",
@@ -94,7 +94,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="scroll-mt-20 py-24 px-6 bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50 overflow-hidden"
+      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tr from-sky-50/50 via-white to-sky-100/50 overflow-hidden"
     >
       <Container>
         <SectionTitle

@@ -20,7 +20,7 @@ export default function SectionTitle({ title, subtitle }: SectionTitleProps) {
       {subtitle && (
         <Container
           size="2xl"
-          className="text-sky-700 text-2xl leading-relaxed font-semibold"
+          className="text-sky-700 text-lg leading-relaxed font-semibold"
         >
           {subtitle}
         </Container>

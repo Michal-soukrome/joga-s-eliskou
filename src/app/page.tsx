@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -17,10 +18,10 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
-      <Benefits />
       <Pricing />
       <Reservations />
       <Testimonials />
+      <Gallery />
       <FAQ />
       <Contact />
       <Footer />

@@ -7,20 +7,20 @@ export default function Hero() {
   const { openModal } = useReservation();
 
   return (
-    <section className="relative h-[100dvh] pt-20 overflow-hidden">
+    <section className="relative h-[100dvh] overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/assets/eliska.jpg"
+          src="/assets/IMG_0002.webp"
           alt="Eliška Radová — Power Yoga"
           fill
-          className="object-cover object-top"
+          className="object-cover object-center"
           priority
         />
       </div>
 
       {/* Softer overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent -z-0" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-transparent to-transparent -z-0" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-end px-8 md:px-16 lg:px-24 lg:-mt-12 pb-20">
@@ -32,13 +32,12 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight font-poppins">
-            Síla, <span className="text-sky-300">plynulost</span>, klid.
+            Síla, <span className="text-sky-300">mobilita</span>, dech.
           </h1>
 
           {/* Subtext */}
           <p className="text-white/75 leading-relaxed text-xs md:text-base font-poppins max-w-md">
-            Plynulý pohyb, protažení a posílení celého těla v rytmu dechu. Lekce
-            ti pomůže zpomalit, uvolnit napětí a zároveň nabrat energii.
+            Certifikovaná lektorka jógy pro začátečníky a mírně pokročilé.
           </p>
 
           {/* CTAs */}
