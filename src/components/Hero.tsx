@@ -7,7 +7,7 @@ export default function Hero() {
   const { openModal } = useReservation();
 
   return (
-    <section className="relative h-[100dvh] overflow-hidden">
+    <section className="relative h-[80dvh] md:h-[100dvh] overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -20,7 +20,9 @@ export default function Hero() {
       </div>
 
       {/* Softer overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-transparent to-transparent -z-0" />
+      <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-slate-900/90 via-transparent to-transparent -z-0" />
+      {/* Mobile Softer overlay */}
+      <div className="md:hidden absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/75 to-transparent -z-0" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-end px-8 md:px-16 lg:px-24 lg:-mt-12 pb-20">
@@ -36,7 +38,7 @@ export default function Hero() {
           </h1>
 
           {/* Subtext */}
-          <p className="text-white/75 leading-relaxed text-xs md:text-base font-poppins max-w-md">
+          <p className="text-white/75 leading-relaxed text-sm md:text-base font-poppins max-w-md">
             Certifikovaná lektorka jógy pro začátečníky a mírně pokročilé.
           </p>
 
@@ -46,7 +48,7 @@ export default function Hero() {
               Rezervovat lekci
             </button>
 
-            <a href="#services" className="btn-secondary">
+            <a href="#about" className="btn-secondary">
               Více informací
             </a>
           </div>

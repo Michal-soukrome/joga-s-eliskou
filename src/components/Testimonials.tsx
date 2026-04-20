@@ -94,7 +94,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="scroll-mt-20 py-24 px-6 bg-gradient-to-tr from-sky-50/50 via-white to-sky-100/50 overflow-hidden"
+      className="scroll-mt-16 py-16 md:py-24 px-6 bg-gradient-to-tr from-sky-50/50 via-white to-sky-100/50 overflow-hidden"
     >
       <Container>
         <SectionTitle
