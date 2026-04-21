@@ -1,6 +1,7 @@
 "use client";
 import { useReservation } from "@/context/ReservationContext";
 import { useEffect } from "react";
+import Container from "./Container";
 
 export default function ReservationModal() {
   const { isOpen, closeModal } = useReservation();
@@ -8,10 +9,12 @@ export default function ReservationModal() {
   useEffect(() => {
     if (!isOpen) {
       document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
       return;
     }
 
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === "Escape" || event.key === "Esc") {
         closeModal();
@@ -22,6 +25,7 @@ export default function ReservationModal() {
     return () => {
       window.removeEventListener("keydown", handleEscapeKey, true);
       document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
     };
   }, [isOpen, closeModal]);
 
@@ -29,85 +33,60 @@ export default function ReservationModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
-      style={{ padding: "clamp(8px, 2vw, 24px)" }}
+      className="fixed inset-0 z-50 flex items-center justify-center md:p-6"
+      style={{ padding: "0", paddingTop: "0" }}
     >
       {/* Dark overlay */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-md"
+        className="absolute inset-0 bg-black/60 backdrop-blur-md md:bg-black/60"
         onClick={closeModal}
         style={{ animation: "fadeIn 0.2s ease" }}
       />
 
       {/* Modal container */}
       <div
-        className="relative z-10 w-full bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+        className="relative z-10 w-full bg-white overflow-hidden flex flex-col md:rounded-2xl md:shadow-2xl"
         style={{
           maxWidth: "min(1100px, 98vw)",
-          height: "min(92vh, 900px)",
+          height: "100vh",
+          maxHeight: "100vh",
           animation: "slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        {/* Header */}
-        <div className="flex items-center justify-between px-8 py-5 border-b border-sky-100 bg-gradient-to-r from-sky-50 via-white to-sky-50 shrink-0">
-          <div className="flex items-center gap-3">
-            <div>
-              <h5
-                className="text-xl font-bold text-sky-900 leading-tight "
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-                Rezervace lekce
-              </h5>
+        {/* Header - responsive padding */}
+        <div className="flex items-center justify-between px-6 border-b border-sky-100 bg-gradient-to-r from-sky-50 via-white to-sky-50 shrink-0 md:rounded-t-2xl h-20">
+          <Container className="w-full h-full flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div>
+                <span className="font-poppins text-xl font-bold text-sky-900 tracking-tight ">
+                  Rezervace lekce
+                </span>
+              </div>
             </div>
-          </div>
 
-          <div className="flex items-center gap-2">
-            {/* Open in new tab */}
-            <a
-              href="https://power-joga-s-eliskou.reservio.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-1.5 text-sky-500 hover:text-sky-700 text-xs font-medium px-3 py-1.5 rounded-lg hover:bg-sky-50 transition-colors"
-            >
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <div className="flex items-center gap-2">
+              {/* Close button */}
+              <button
+                onClick={closeModal}
+                aria-label="Zavřít"
+                className="flex items-center justify-center w-9 h-9 text-sky-400 hover:text-sky-800 hover:bg-sky-100 rounded-xl transition-all duration-150"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-              Otevřít v nové záložce
-            </a>
-
-            <div className="w-px h-5 bg-sky-100" />
-
-            {/* Close button */}
-            <button
-              onClick={closeModal}
-              aria-label="Zavřít"
-              className="flex items-center justify-center w-9 h-9 text-sky-400 hover:text-sky-800 hover:bg-sky-100 rounded-xl transition-all duration-150"
-            >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </Container>
         </div>
 
         {/* Iframe container */}

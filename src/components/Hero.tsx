@@ -7,7 +7,7 @@ export default function Hero() {
   const { openModal } = useReservation();
 
   return (
-    <section className="relative h-[80dvh] md:h-[100dvh] overflow-hidden">
+    <section className="relative h-[85dvh] md:h-[100dvh] overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <Image
