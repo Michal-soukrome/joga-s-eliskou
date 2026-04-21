@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/assets/IMG_0002.webp"
-          alt="Eliška Radová — Power Yoga"
+          alt="Eliška Radová - Power Jóga"
           fill
           className="object-cover object-center"
           priority
@@ -33,9 +33,9 @@ export default function Hero() {
           </span>
 
           {/* Headline */}
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight font-poppins">
+          <h3 className="text-4xl md:text-6xl font-bold text-white leading-tight font-poppins">
             Síla, <span className="text-sky-300">mobilita</span>, dech.
-          </h1>
+          </h3>
 
           {/* Subtext */}
           <p className="text-white/75 leading-relaxed text-sm md:text-base font-poppins max-w-md">

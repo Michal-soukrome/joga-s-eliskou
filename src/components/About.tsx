@@ -104,9 +104,9 @@ export default function About() {
 
               {/* Name tag */}
               <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white font-semibold font-poppins text-sm leading-none">
+                <h1 className="text-white font-semibold font-poppins text-sm leading-none">
                   Eliška Radová
-                </p>
+                </h1>
                 <p className="text-white/70 text-xs mt-1 font-poppins">
                   Certifikovaná instruktorka jógy
                 </p>
