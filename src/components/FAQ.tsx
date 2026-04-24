@@ -5,7 +5,7 @@ const faqs = [
   {
     question: "Je power jóga vhodná pro začátečníky?",
     answer:
-      "Nabízím lekce pro všechny úrovně — začátečníky i pokročilé. Každá lekce je plně přizpůsobitelná tvé fyzické kondici.",
+      "Nabízím lekce pro všechny úrovně - začátečníky i pokročilé. Každá lekce je plně přizpůsobitelná tvé fyzické kondici.",
   },
   {
     question: "Jaké cvičební vybavení budu potřebovat?",
@@ -61,7 +61,7 @@ export default function FAQ() {
                 </span>
               </summary>
               <div className="px-6 py-4 text-sky-700 border-t border-sky-100 bg-gradient-to-br from-sky-50 to-sky-100/50">
-                <p className="text-base leading-relaxed">{faq.answer}</p>
+                <p className="text-sm leading-relaxed">{faq.answer}</p>
               </div>
             </details>
           ))}

@@ -77,6 +77,7 @@ function getCardStyle(offset: number, total: number) {
 export default function Testimonials() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
   const total = testimonials.length;
 
   const next = useCallback(() => setActive((a) => (a + 1) % total), [total]);
@@ -87,9 +88,22 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(next, 4000);
-    return () => clearInterval(id);
-  }, [paused, next]);
+    const interval = window.setInterval(() => {
+      setProgress((current) => {
+        if (current >= 100) {
+          setActive((value) => (value + 1) % total);
+          return 0;
+        }
+        return current + 2.5;
+      });
+    }, 100);
+
+    return () => window.clearInterval(interval);
+  }, [paused, total]);
+
+  useEffect(() => {
+    setProgress(0);
+  }, [active]);
 
   return (
     <section
@@ -139,7 +153,7 @@ export default function Testimonials() {
                 </p>
                 <div className="flex items-center gap-3 pt-5 border-t border-sky-100">
                   <div className="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-sky-400 text-xs font-semibold">
-                    {t.name !== "—" ? t.name[0] : "★"}
+                    {t.name !== "-" ? t.name[0] : "★"}
                   </div>
                   <p className="font-semibold text-sky-900 text-base">
                     {t.name}
@@ -148,6 +162,13 @@ export default function Testimonials() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mb-6 overflow-hidden rounded-full bg-sky-100 h-2">
+          <div
+            className="h-2 rounded-full bg-sky-700 transition-all duration-100 ease-out"
+            style={{ width: `${progress}%` }}
+          />
         </div>
 
         {/* Controls */}

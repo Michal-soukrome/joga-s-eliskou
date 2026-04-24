@@ -48,8 +48,8 @@ export default function ReservationModal() {
         className="relative z-10 w-full bg-white overflow-hidden flex flex-col md:rounded-2xl md:shadow-2xl"
         style={{
           maxWidth: "min(1100px, 98vw)",
-          height: "100vh",
-          maxHeight: "100vh",
+          height: "85dvh",
+          maxHeight: "85dvh",
           animation: "slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >

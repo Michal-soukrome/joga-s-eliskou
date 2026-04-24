@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface ContainerProps {
   children: ReactNode;
-  size?: "7xl" | "4xl" | "2xl" | "lg" | "sm" | "none";
+  size?: "7xl" | "4xl" | "2xl" | "xl" | "sm" | "none";
   className?: string;
 }
 
@@ -15,7 +15,7 @@ export default function Container({
     "7xl": "max-w-7xl",
     "4xl": "max-w-4xl",
     "2xl": "max-w-2xl",
-    lg: "max-w-lg",
+    xl: "max-w-lg",
     sm: "max-w-sm",
     none: "max-w-none",
   };

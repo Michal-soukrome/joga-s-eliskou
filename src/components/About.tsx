@@ -5,7 +5,7 @@ import Image from "next/image";
 const chapters = [
   {
     label: "Můj začátek",
-    text: `Vystudovala jsem Vysokou školu chemicko-technologickou v Praze. Po škole jsem nastoupila do Všeobecné fakultní nemocnice, kde působím dodnes. Na VŠ jsem začala navštěvovat lekce jógy — ze začátku jen jako protažení těla, zklidnění mysli. Na lekci se mi líbilo, že věnujete čas sami sobě a zanechávalo to ve mně krásně hřejivý pocit.`,
+    text: `Vystudovala jsem Vysokou školu chemicko-technologickou v Praze. Po škole jsem nastoupila do Všeobecné fakultní nemocnice, kde působím dodnes. Na VŠ jsem začala navštěvovat lekce jógy - ze začátku jen jako protažení těla, zklidnění mysli. Na lekci se mi líbilo, že věnujete čas sami sobě a zanechávalo to ve mně krásně hřejivý pocit.`,
   },
   {
     label: "Hledání stylu",
@@ -17,7 +17,7 @@ const chapters = [
   },
   {
     label: "Moje lekce",
-    text: `Cílem mých hodin je najít si chvilku sám pro sebe, oprostit se od vnějšího světa a časem prohlubovat vlastní možnosti. Lekce má jasnou strukturu: začínáme naladěním na dech, pokračujeme rozehřátím, dynamickou částí ve stoje, prací se středem těla a rovnováhou. Uzavíráme šavásanou — hlubokou relaxací. Na závěr ráda pracuji s jemnou aromaterapií nebo zpívanými mantrami.`,
+    text: `Cílem mých hodin je najít si chvilku sám pro sebe, oprostit se od vnějšího světa a časem prohlubovat vlastní možnosti. Lekce má jasnou strukturu: začínáme naladěním na dech, pokračujeme rozehřátím, dynamickou částí ve stoje, prací se středem těla a rovnováhou. Uzavíráme šavásanou - hlubokou relaxací. Na závěr ráda pracuji s jemnou aromaterapií nebo zpívanými mantrami.`,
   },
 ];
 
@@ -40,7 +40,7 @@ export default function About() {
     >
       <Container>
         <SectionTitle title="O mně" />
-        <div className="mt-16 grid lg:grid-cols-[1fr_340px] gap-16 items-start">
+        <div className="mt-16 grid xl:grid-cols-[1fr_340px] gap-16 items-start">
           {/* ── Left: editorial prose with chapter markers ── */}
           <div className="space-y-0">
             <blockquote className="border-l-2 border-sky-300 pl-6 mb-12">
@@ -76,7 +76,7 @@ export default function About() {
                 <span className="font-semibold text-sky-800">
                   Jóga je pro každého!
                 </span>{" "}
-                Vítám pokročilé jogíny i úplné začátečníky — vše ráda ukážu a
+                Vítám pokročilé jogíny i úplné začátečníky - vše ráda ukážu a
                 vysvětlím. Po domluvě nabízím také individuální lekce.
               </p>
               <p className="mt-6 text-sky-800 font-semibold font-poppins">
@@ -87,7 +87,7 @@ export default function About() {
           </div>
 
           {/* ── Right: sticky sidebar ── */}
-          <aside className="lg:sticky lg:top-28 space-y-4">
+          <aside className="xl:sticky xl:top-28 space-y-4">
             {/* ── Trainer image ── */}
             <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-sky-50 border border-sky-100 shadow-sm shadow-sky-100/50">
               <Image

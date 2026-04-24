@@ -48,7 +48,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 w-full h-20 z-50 transition-all duration-300 border-b border-sky-100 shadow-sm shadow-sky-100/50 backdrop-blur-md ${
-        scrolled ? "bg-white/50" : "bg-white/80"
+        scrolled ? "bg-white/80" : "bg-white/80"
       }`}
     >
       <nav className="px-6 h-full">
@@ -62,7 +62,7 @@ export default function Header() {
           </a>
 
           {/* Desktop menu */}
-          <ul className="hidden lg:flex items-center gap-8">
+          <ul className="hidden xl:flex items-center">
             {[
               ["O mně", "#about"],
               ["Lekce", "#services"],
@@ -75,7 +75,7 @@ export default function Header() {
               <li key={href}>
                 <a
                   href={href}
-                  className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-xs uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline"
+                  className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-sm uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline p-4"
                 >
                   {label}
                 </a>
@@ -83,14 +83,18 @@ export default function Header() {
             ))}
 
             <li>
-              <button onClick={openModal} className="btn-primary !uppercase">
+              <button
+                onClick={openModal}
+                className="btn-primary ml-2 !uppercase"
+              >
                 Rezervovat
               </button>
             </li>
 
-            {/* Divider */}
+            {/* Divider 
             <li aria-hidden className="w-px h-4 bg-sky-200 rounded-full" />
-            {/* Social icons */}
+            */}
+            {/* Social icons 
             {socials.map(({ label, href, icon }) => (
               <li key={label}>
                 <a
@@ -104,11 +108,12 @@ export default function Header() {
                 </a>
               </li>
             ))}
+              */}
           </ul>
 
           {/* Hamburger */}
           <button
-            className="lg:hidden relative w-8 h-8 flex flex-col justify-center items-center"
+            className="xl:hidden relative w-8 h-8 flex flex-col justify-center items-center"
             onClick={() => setOpen(!open)}
           >
             <span
@@ -126,7 +131,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-lg shadow-sky-100/40 transition-all duration-300 overflow-hidden ${
+        className={`xl:hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-lg shadow-sky-100/40 transition-all duration-300 overflow-hidden ${
           open ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >

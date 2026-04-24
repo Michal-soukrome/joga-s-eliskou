@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     "Power jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu. Rezervace online přes Reservio.",
   keywords:
     "jóga, power jóga, wellness, meditace, fitness, mindfulness, Beroun, Eliška Radová, Studio Yogaway",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

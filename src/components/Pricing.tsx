@@ -22,7 +22,7 @@ const pricingPlans = [
     description: "Výhodná varianta pro pravidelnou praxi.",
     features: ["Platnost 12 týdnů"],
     cta: "Koupit permanentku",
-    href: "#reservations",
+    href: "#contact",
     highlighted: true,
   },
   {
@@ -33,7 +33,7 @@ const pricingPlans = [
     description: "Ideální pro občasnou návštěvu bez závazků.",
     features: [],
     cta: "Dozvědět se více",
-    href: "#contact",
+    href: "#reservations",
   },
   {
     id: 4,
@@ -61,7 +61,7 @@ export default function Pricing() {
           subtitle="Dostupné lekce a tréninkové programy"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
@@ -73,7 +73,7 @@ export default function Pricing() {
             >
               {plan.highlighted && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-sky-600 text-white text-xs uppercase tracking-widest font-semibold rounded-full whitespace-nowrap">
-                  Nejpopulárnější
+                  nejvýhodnější
                 </span>
               )}
 
@@ -113,10 +113,8 @@ export default function Pricing() {
               {/* CTA */}
               <a
                 href={plan.href}
-                className={`text-sm font-medium transition-colors duration-200 group-hover:underline ${
-                  plan.highlighted
-                    ? "text-sky-700 hover:text-sky-900"
-                    : "text-sky-500 hover:text-sky-700"
+                className={`btn ${
+                  plan.highlighted ? "btn-primary" : "btn-secondary"
                 }`}
               >
                 {plan.cta} →
