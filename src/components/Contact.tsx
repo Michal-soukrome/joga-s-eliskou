@@ -34,6 +34,7 @@ const contactItems = [
 
 export default function Contact() {
   const { openModal } = useReservation();
+
   return (
     <section
       id="contact"
@@ -49,30 +50,37 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left: contact grid */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {contactItems.map((item) => (
-              <div
-                key={item.label}
-                className="border-l-2 border-sky-300 pl-5 hover:border-sky-500 hover:pl-6 transition-all duration-200 group group"
-              >
-                <p className="text-xs uppercase tracking-[0.2em] text-sky-500 mb-2 group-hover:text-sky-700 transition-colors duration-200 font-semibold">
-                  {item.label}
-                </p>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    className="text-sky-700 hover:text-sky-900 transition-all duration-200 text-base leading-relaxed whitespace-pre-line font-medium group-hover:underline"
-                    target="_blank"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <p className="text-sky-700 text-base leading-relaxed whitespace-pre-line font-medium">
-                    {item.value}
-                  </p>
-                )}
-              </div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-6">
+            {contactItems.map((item) => {
+              const Wrapper = item.href ? "a" : "div";
+
+              return (
+                <Wrapper
+                  key={item.label}
+                  href={item.href || undefined}
+                  target={item.href ? "_blank" : undefined}
+                  className={
+                    item.href
+                      ? "group text-sky-700 hover:text-sky-900 transition-all duration-200"
+                      : "group"
+                  }
+                >
+                  <div className="border-l-2 border-sky-300 pl-5 hover:border-sky-500 hover:pl-6 transition-all duration-200">
+                    <p className="text-xs uppercase tracking-[0.2em] text-sky-500 mb-2 group-hover:text-sky-700 transition-colors duration-200 font-semibold">
+                      {item.label}
+                    </p>
+
+                    <p
+                      className={`text-sky-700 text-base leading-relaxed whitespace-pre-line font-medium ${
+                        item.href ? "group-hover:underline" : ""
+                      }`}
+                    >
+                      {item.value}
+                    </p>
+                  </div>
+                </Wrapper>
+              );
+            })}
           </div>
 
           {/* Right: CTA card */}

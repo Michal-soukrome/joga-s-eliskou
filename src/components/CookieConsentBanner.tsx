@@ -91,7 +91,7 @@ export default function CookieConsentBanner() {
             onClick={handleAccept}
             className="btn-secondary"
           >
-            Povolit analytiku
+            Povolit vše
           </button>
           <button type="button" onClick={handleReject} className="btn-outline">
             Pouze nezbytné

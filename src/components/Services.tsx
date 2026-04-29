@@ -2,6 +2,7 @@
 import { useState } from "react";
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
+import { useReservation } from "@/context/ReservationContext";
 
 const lessons = [
   {
@@ -81,6 +82,7 @@ const lessons = [
 
 export default function Lekce() {
   const [openId, setOpenId] = useState<number | null>(null);
+  const { openModal } = useReservation();
 
   return (
     <section
@@ -165,6 +167,12 @@ export default function Lekce() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-5">
+          <button className="btn-primary mx-auto" onClick={openModal}>
+            Rezervovat
+          </button>
         </div>
       </Container>
     </section>
