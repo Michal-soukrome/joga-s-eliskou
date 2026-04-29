@@ -1,3 +1,5 @@
+"use client";
+
 import Container from "@/components/Container";
 
 export default function Footer() {
@@ -80,7 +82,20 @@ export default function Footer() {
 
         <div className="border-t border-sky-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-sky-600">
           <p>&copy; {currentYear} Eliška Radová</p>
-          <p>IČO: 24528480</p>
+          <div className="flex items-center gap-4">
+            <p>IČO: 24528480</p>
+            <button
+              type="button"
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  window.dispatchEvent(new CustomEvent("cookieConsent:open"));
+                }
+              }}
+              className="text-sky-600 hover:text-sky-900 underline transition-colors duration-200"
+            >
+              Nastavení cookies
+            </button>
+          </div>
         </div>
       </Container>
     </footer>
