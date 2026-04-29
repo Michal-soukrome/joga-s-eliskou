@@ -73,7 +73,7 @@ export default function CookieConsentBanner() {
   if (consent !== null) return null;
 
   return (
-    <div className="fixed bottom-0 md:bottom-4 right-4 z-50 md:rounded-lg border border-sky-200 bg-white/95 p-5 shadow-2xl shadow-sky-200/40 backdrop-blur-md ring-1 ring-sky-100 sm:inset-x-8 lg:bottom-6 md:max-w-2xl">
+    <div className="fixed bottom-0 md:bottom-4 right-0 md:right-4 z-50 md:rounded-lg border border-sky-200 bg-white/95 p-5 shadow-2xl shadow-sky-200/40 backdrop-blur-md ring-1 ring-sky-100 sm:inset-x-8 lg:bottom-6 w-full md:w-fit md:max-w-2xl">
       <div className="flex flex-col gap-4 ">
         <div>
           <p className="text-sm uppercase tracking-[0.35em] text-sky-600 font-semibold font-poppins">
@@ -85,7 +85,7 @@ export default function CookieConsentBanner() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="flex  gap-2 items-center">
           <button
             type="button"
             onClick={handleAccept}
