@@ -19,7 +19,7 @@ import img9826 from "../../public/assets/galerie/IMG_9826.jpg";
 import img9690 from "../../public/assets/galerie/IMG_9690.jpg";
 import img9857 from "../../public/assets/galerie/IMG_9857.jpg";
 import img9865 from "../../public/assets/galerie/IMG_9865.jpg";
-import img9898 from "../../public/assets/galerie/IMG_9898.JPG";
+import img9898 from "../../public/assets/galerie/IMG_9898.jpg";
 import img9921 from "../../public/assets/galerie/IMG_9921.jpg";
 import img9922 from "../../public/assets/galerie/IMG_9922.jpg";
 import img9935 from "../../public/assets/galerie/IMG_9935.jpg";
