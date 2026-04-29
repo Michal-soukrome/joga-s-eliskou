@@ -183,7 +183,7 @@ export default function Gallery() {
       </Container>
 
       {/* Full-width grid */}
-      <div className="mt-12 px-6 max-w-7xl mx-auto">
+      <div className="mt-12 md:px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 auto-rows-[180px] gap-3">
           {photos.map((photo, i) => (
             <div

@@ -135,7 +135,7 @@ export default function Lekce() {
 
                 {/* Expandable body */}
                 <div
-                  className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-[600px]" : "max-h-0"} overflow-hidden`}
+                  className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-[700px]" : "max-h-0"} overflow-hidden`}
                 >
                   <div className="px-6 pb-6 border-t border-sky-100 pt-5">
                     <ul className="space-y-3">

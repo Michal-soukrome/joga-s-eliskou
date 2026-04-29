@@ -72,7 +72,7 @@ export default function FAQ() {
             Máte další otázku?
           </h3>
           <p className="mb-6 text-lg opacity-95">
-            Neváhej se ozvat! S radostí ti odpovím na cokoliv.
+            Neváhejte se ozvat! S radostí odpovím na cokoliv.
           </p>
           <a href="#contact" className="!w-fit !mx-auto btn-secondary">
             Spojte se se mnou
