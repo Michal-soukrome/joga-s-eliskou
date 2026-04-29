@@ -1,0 +1,4 @@
+editovatsmazat		300	A	185.8.237.22		 
+editovatsmazat		300	AAAA	2a0e:acc0::d22		 
+editovatsmazat	*	300	A	185.8.237.22		 
+editovatsmazat	*	300	AAAA	2a0e:acc0::d22
