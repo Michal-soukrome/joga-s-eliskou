@@ -50,11 +50,7 @@ const photos = [
     alt: "",
     span: "md:col-span-1 md:row-span-1",
   },
-  {
-    src: "/assets/galerie/IMG_9746.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
+
   {
     src: "/assets/galerie/IMG_9754.jpg",
     alt: "",
@@ -95,21 +91,13 @@ const photos = [
     alt: "",
     span: "md:col-span-1 md:row-span-1",
   },
-  {
-    src: "/assets/galerie/IMG_9870.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-1",
-  },
+
   {
     src: "/assets/galerie/IMG_9898.JPG",
     alt: "",
     span: "md:col-span-4 md:row-span-2",
   },
-  {
-    src: "/assets/galerie/IMG_9915.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-1",
-  },
+
   {
     src: "/assets/galerie/IMG_9921.jpg",
     alt: "",
