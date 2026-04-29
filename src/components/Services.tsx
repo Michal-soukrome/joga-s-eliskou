@@ -8,7 +8,7 @@ const lessons = [
     id: 1,
     number: "",
     title: "Power Jóga",
-    subtitle: "Dynamická praxe v rytmu dechu",
+    subtitle: "Dynamická, posilující praxe s výdržemi v pozicích",
     steps: [
       {
         n: 1,
@@ -46,28 +46,33 @@ const lessons = [
   {
     id: 2,
     number: "",
-    title: "Protažení & Flexibilita",
-    subtitle: "Hlubší strečink pro tělo i mysl",
+    title: "Jemná jóga",
+    subtitle: "Klidná, plynulá praxe v rytmu dechu",
     steps: [
       {
         n: 1,
-        title: "Rozehřátí",
-        desc: "Jemné zahřátí svalů a kloubů před hlubším protažením.",
+        title: "Zklidnění",
+        desc: "Začínáme zpomalením, naladěním na dech a uvolněním napětí.",
       },
       {
         n: 2,
-        title: "Statický strečink",
-        desc: "Vydržíme déle v pozicích pro maximální uvolnění.",
+        title: "Jemné rozhýbání",
+        desc: "Pokračujeme pozvolným rozhýbáním a zahřátím celého těla.",
       },
       {
         n: 3,
-        title: "Práce s dechem",
-        desc: "Dech jako nástroj k prohloubení každé pozice.",
+        title: "Plynulá praxe ve stoje",
+        desc: "Jednoduché, navazující ásany v rytmu dechu.",
       },
       {
         n: 4,
-        title: "Závěr",
-        desc: "Relaxace a integrace - tělo vstřebá veškerou práci.",
+        title: "Protažení na podložce",
+        desc: "Klidné pozice zaměřené na uvolnění a protažení těla.",
+      },
+      {
+        n: 5,
+        title: "Závěrečná relaxace",
+        desc: "Šavásana - vedená relaxace s vonnou aromaterapií.",
       },
     ],
     note: "Vhodné pro prevenci zranění, sportovce i ty, kdo chtějí zlepšit celkovou pohyblivost.",

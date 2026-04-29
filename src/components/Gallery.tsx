@@ -1,41 +1,185 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 
 const photos = [
   {
-    src: "/assets/IMG_0002.webp",
-    alt: "Power jóga - dynamická pozice",
-    span: "col-span-2 row-span-2",
-  },
-
-  {
-    src: "/assets/IMG_0003.webp",
-    alt: "Protažení a flexibilita",
-    span: "col-span-1 row-span-1",
+    src: "/assets/eliska/IMG_0003.jpg",
+    alt: "Lekce jógy v sezení",
+    span: "md:col-span-4 md:row-span-2",
   },
   {
-    src: "/assets/IMG_002.webp",
-    alt: "Meditace a soustředění",
-    span: "col-span-1 row-span-1",
+    src: "/assets/eliska/IMG_002.jpg",
+    alt: "Přátelská atmosféra ve skupině",
+    span: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "/assets/IMG_00011.webp",
-    alt: "Rovnovážná pozice",
-    span: "col-span-1 row-span-1",
+    src: "/assets/eliska/IMG_00011.jpg",
+    alt: "Instruktorka vede trénink",
+    span: "md:col-span-2 md:row-span-1",
   },
-
   {
-    src: "/assets/IMG_0004.webp",
-    alt: "Skupinová lekce jógy",
-    span: "col-span-1 row-span-1",
+    src: "/assets/eliska/IMG_0004.jpg",
+    alt: "Cvičení s pohledem do prostoru",
+    span: "md:col-span-3 md:row-span-2",
+  },
+  {
+    src: "/assets/galerie/IMG_3495.jpeg",
+    alt: "Dynamické protahování",
+    span: "md:col-span-3 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9680.JPG",
+    alt: "Společné cvičení na podložkách",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    src: "/assets/galerie/IMG_9690.JPG",
+    alt: "Relaxace v závěru lekce",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9730.jpg",
+    alt: "Příjemný tréninkový prostor",
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9736.jpg",
+    alt: "Balancování pozice",
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9746.jpg",
+    alt: "Skupinová energie",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    src: "/assets/galerie/IMG_9754.jpg",
+    alt: "Soustředěné cvičení",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9757.jpg",
+    alt: "Lehký strečink",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9763.jpg",
+    alt: "Pohodová atmosféra",
+    span: "md:col-span-3 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9817.jpg",
+    alt: "Podlahové cviky",
+    span: "md:col-span-3 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9826.jpg",
+    alt: "Vyrovnané držení těla",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    src: "/assets/galerie/IMG_9852.jpg",
+    alt: "Kruh cvicících se osob",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9857.jpg",
+    alt: "Cvičení s úsměvem",
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9865.jpg",
+    alt: "Trénink v jasném interiéru",
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9870.jpg",
+    alt: "Detailní záběr z lekce",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9898.JPG",
+    alt: "Příprava na pozici",
+    span: "md:col-span-4 md:row-span-2",
+  },
+  {
+    src: "/assets/galerie/IMG_9915.jpg",
+    alt: "Cvičení s doprovodem",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9921.jpg",
+    alt: "Zklidnění po cvičení",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9922.jpg",
+    alt: "Přívětivé prostředí lekce",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    src: "/assets/galerie/IMG_9935.jpg",
+    alt: "Čas na relaxaci",
+    span: "md:col-span-2 md:row-span-1",
   },
 ];
 
 export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const [isLightboxLoading, setIsLightboxLoading] = useState(false);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+
+    setIsLightboxLoading(true);
+
+    const nextImage = new window.Image();
+    const prevImage = new window.Image();
+
+    nextImage.src = photos[(lightbox + 1) % photos.length].src;
+    prevImage.src = photos[(lightbox - 1 + photos.length) % photos.length].src;
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLightbox(null);
+        return;
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setLightbox((current) =>
+          current === null ? null : (current + 1) % photos.length,
+        );
+        setIsLightboxLoading(true);
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setLightbox((current) =>
+          current === null
+            ? null
+            : (current - 1 + photos.length) % photos.length,
+        );
+        setIsLightboxLoading(true);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      nextImage.src = "";
+      prevImage.src = "";
+      window.removeEventListener("keydown", handleKeydown);
+    };
+  }, [lightbox]);
+
+  const openLightbox = (index: number) => {
+    setLightbox(index);
+    setIsLightboxLoading(true);
+  };
 
   return (
     <section
@@ -52,12 +196,12 @@ export default function Gallery() {
 
       {/* Full-width grid */}
       <div className="mt-12 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[220px] gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 auto-rows-[180px] gap-3">
           {photos.map((photo, i) => (
             <div
               key={i}
-              className={`${photo.span} relative overflow-hidden rounded-xl cursor-pointer group`}
-              onClick={() => setLightbox(i)}
+              className={`${photo.span} relative overflow-hidden rounded-3xl cursor-pointer group`}
+              onClick={() => openLightbox(i)}
             >
               <Image
                 src={photo.src}
@@ -132,7 +276,14 @@ export default function Gallery() {
               fill
               className="object-contain"
               sizes="100vw"
+              onLoadingComplete={() => setIsLightboxLoading(false)}
             />
+
+            {isLightboxLoading && (
+              <div className="absolute inset-0 bg-sky-950/50 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full border-4 border-white/20 border-t-white animate-spin" />
+              </div>
+            )}
           </div>
 
           {/* Next */}

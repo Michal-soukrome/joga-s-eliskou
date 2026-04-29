@@ -52,9 +52,8 @@ function StarRating({ count }: { count: number }) {
 }
 
 function getCardStyle(offset: number, total: number) {
-  // offset: 0 = active, 1 = next, -1 = prev, etc.
   const abs = Math.abs(offset);
-  if (abs > 2) return null; // don't render far-away cards
+  if (abs > 2) return null;
 
   const scale = offset === 0 ? 1 : offset === 1 ? 0.93 : 0.86;
   const translateX =
@@ -126,7 +125,6 @@ export default function Testimonials() {
         >
           {testimonials.map((t, i) => {
             const offset = (((i - active + total) % total) + total) % total;
-            // Remap: 0=active, 1=right, 2=far-right, total-1=left, total-2=far-left
             const remapped = offset > total / 2 ? offset - total : offset;
             const style = getCardStyle(remapped, total);
             if (!style) return null;
@@ -164,13 +162,6 @@ export default function Testimonials() {
           })}
         </div>
 
-        <div className="mb-6 overflow-hidden rounded-full bg-sky-100 h-2">
-          <div
-            className="h-2 rounded-full bg-sky-700 transition-all duration-100 ease-out"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-
         {/* Controls */}
         <div className="flex items-center justify-center gap-6 mt-10">
           <button
@@ -185,15 +176,24 @@ export default function Testimonials() {
             {testimonials.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setActive(i)}
-                className="transition-all duration-300 rounded-full"
+                onClick={() => {
+                  setActive(i);
+                  setProgress(0);
+                }}
+                className="relative h-2 rounded-full overflow-hidden transition-all duration-300"
                 style={{
-                  width: i === active ? 24 : 8,
-                  height: 8,
-                  background: i === active ? "#38bdf8" : "#bae6fd",
+                  width: i === active ? 32 : 8,
+                  background: "#bae6fd",
                 }}
                 aria-label={`Přejít na ${i + 1}`}
-              />
+              >
+                {i === active && (
+                  <span
+                    className="absolute inset-y-0 left-0 rounded-full bg-sky-500 transition-none"
+                    style={{ width: `${progress}%` }}
+                  />
+                )}
+              </button>
             ))}
           </div>
 

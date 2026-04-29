@@ -11,7 +11,7 @@ export default function Hero() {
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/assets/IMG_0002.webp"
+          src="/assets/eliska/eliska-cover.png"
           alt="Eliška Radová - Power Jóga"
           fill
           className="object-cover object-center"
@@ -38,8 +38,10 @@ export default function Hero() {
           </h3>
 
           {/* Subtext */}
-          <p className="text-white/75 leading-relaxed text-sm md:text-base font-poppins max-w-md">
-            Certifikovaná lektorka jógy pro začátečníky a mírně pokročilé.
+          <p className="text-white/75 leading-relaxed text-sm md:text-base font-poppins max-w-lg">
+            certifikovaná lektorka jógy
+            <span className="mx-1">•</span>
+            lekce pro začátečníky a mírně pokročilé
           </p>
 
           {/* CTAs */}

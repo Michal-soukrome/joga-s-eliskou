@@ -59,8 +59,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=61572048573388"
                   className="hover:underline transition-all duration-200 hover:translate-x-1 flex items-center gap-3"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg
                     viewBox="0 0 24 24"

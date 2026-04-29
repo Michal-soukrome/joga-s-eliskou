@@ -50,15 +50,9 @@ export default function About() {
               </p>
             </blockquote>
 
-            <div className="space-y-10">
+            <div className="space-y-2">
               {chapters.map((ch, i) => (
                 <div key={i} className="flex gap-6 group">
-                  <div className="flex flex-col items-center pt-1 shrink-0">
-                    <div className="w-7 h-7 rounded-full border border-sky-200 bg-sky-50 flex items-center justify-center text-sky-500 text-xs font-semibold font-poppins group-hover:bg-sky-100 group-hover:border-sky-300 transition-colors" />
-                    {i < chapters.length - 1 && (
-                      <div className="w-px flex-1 mt-2 bg-gradient-to-b from-sky-200 to-transparent" />
-                    )}
-                  </div>
                   <div className="pb-10">
                     <p className="text-[11px] uppercase tracking-[0.2em] text-sky-400 font-semibold font-poppins mb-2">
                       {ch.label}
@@ -71,7 +65,7 @@ export default function About() {
               ))}
             </div>
 
-            <div className="pl-[52px] pt-2">
+            <div className="pt-2">
               <p className="text-sky-600 text-sm leading-relaxed">
                 <span className="font-semibold text-sky-800">
                   Jóga je pro každého!
@@ -91,7 +85,7 @@ export default function About() {
             {/* ── Trainer image ── */}
             <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-sky-50 border border-sky-100 shadow-sm shadow-sky-100/50">
               <Image
-                src="/assets/IMG_0001.webp"
+                src="/assets/eliska/IMG_0001.jpg"
                 alt="Eliška Radová - instruktorka jógy"
                 fill
                 className="object-cover object-top"

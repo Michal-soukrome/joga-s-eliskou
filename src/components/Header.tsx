@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const socials = [
   {
     label: "Facebook",
-    href: "https://facebook.com/YOUR_PAGE",
+    href: "https://www.facebook.com/profile.php?id=61572048573388",
     icon: (
       <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
         <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -15,7 +15,7 @@ const socials = [
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/YOUR_HANDLE",
+    href: "https://www.instagram.com/e.radova99/",
     icon: (
       <svg
         viewBox="0 0 24 24"
