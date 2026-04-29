@@ -176,7 +176,7 @@ export default function Gallery() {
           onClick={() => setLightbox(null)}
         >
           <button
-            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
+            className="absolute top-5 right-5 w-10 h-10 z-50 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
             onClick={() => setLightbox(null)}
           >
             <svg
@@ -192,7 +192,7 @@ export default function Gallery() {
           </button>
 
           <button
-            className="absolute left-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
+            className="absolute left-5 w-10 h-10 z-50 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
             onClick={(e) => {
               e.stopPropagation();
               setLightbox((lightbox - 1 + photos.length) % photos.length);
@@ -212,7 +212,7 @@ export default function Gallery() {
           </button>
 
           <div
-            className="relative w-full max-w-4xl aspect-[4/3] rounded-lg overflow-hidden"
+            className="relative w-full h-dvh overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -220,7 +220,7 @@ export default function Gallery() {
               alt={photos[lightbox].alt}
               fill
               className="object-contain"
-              sizes="100vw"
+              sizes="100vw 100vh"
               onLoad={() => setIsLightboxLoading(false)}
             />
             {isLightboxLoading && (

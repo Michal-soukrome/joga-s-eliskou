@@ -32,7 +32,7 @@ const pricingPlans = [
     unit: "Kč",
     description: "Ideální pro občasnou návštěvu bez závazků.",
     features: [],
-    cta: "Dozvědět se více",
+    cta: "Zarezervovat",
     href: "#reservations",
   },
   {
@@ -111,14 +111,26 @@ export default function Pricing() {
               <div className="my-5 border-t border-sky-100" />
 
               {/* CTA */}
-              <a
-                href={plan.href}
-                className={`btn ${
-                  plan.highlighted ? "btn-primary" : "btn-secondary"
-                }`}
-              >
-                {plan.cta} →
-              </a>
+              {plan.href === "#reservations" ? (
+                <button
+                  type="button"
+                  onClick={openModal}
+                  className={`btn ${
+                    plan.highlighted ? "btn-primary" : "btn-secondary"
+                  }`}
+                >
+                  {plan.cta} →
+                </button>
+              ) : (
+                <a
+                  href={plan.href}
+                  className={`btn ${
+                    plan.highlighted ? "btn-primary" : "btn-secondary"
+                  }`}
+                >
+                  {plan.cta} →
+                </a>
+              )}
             </div>
           ))}
         </div>
