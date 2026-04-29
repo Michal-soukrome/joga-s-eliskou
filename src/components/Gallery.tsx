@@ -5,27 +5,23 @@ import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 
 const photos = [
-  // Row 1-2: portrait pair
-
   {
     src: "/assets/galerie/IMG_3495.jpeg",
     alt: "",
     span: "md:col-span-2 md:row-span-2",
   },
-
-  // Rows 4-5: portrait trio
   {
-    src: "/assets/galerie/IMG_9680.JPG",
+    src: "/assets/galerie/IMG_9730.JPG",
     alt: "",
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    src: "/assets/galerie/IMG_9690.JPG",
+    src: "/assets/galerie/IMG_9852.JPG",
     alt: "",
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    src: "/assets/galerie/IMG_9730.jpg",
+    src: "/assets/galerie/IMG_9680.jpg",
     alt: "",
     span: "md:col-span-2 md:row-span-2",
   },
@@ -72,7 +68,7 @@ const photos = [
 
   // Rows 10-11: portrait trio
   {
-    src: "/assets/galerie/IMG_9852.jpg",
+    src: "/assets/galerie/IMG_9690.jpg",
     alt: "",
     span: "md:col-span-2 md:row-span-2",
   },
