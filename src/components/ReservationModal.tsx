@@ -43,16 +43,7 @@ export default function ReservationModal() {
         style={{ animation: "fadeIn 0.2s ease" }}
       />
 
-      {/* Modal container */}
-      <div
-        className="relative z-10 w-full bg-white overflow-hidden flex flex-col md:rounded-lg md:shadow-2xl"
-        style={{
-          maxWidth: "min(1100px, 98vw)",
-          height: "85dvh",
-          maxHeight: "85dvh",
-          animation: "slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
-      >
+      <div className="relative z-10 w-full bg-white overflow-hidden flex flex-col md:rounded-lg max-w-[min(1100px,100vw)] h-dvh md:h-[85dvh] md:max-h-[85dvh] animate-[slideUp_0.3s_cubic-bezier(0.16,1,0.3,1)]">
         {/* Header - responsive padding */}
         <div className="flex items-center justify-between px-6 border-b border-sky-100 bg-gradient-to-r from-sky-50 via-white to-sky-50 shrink-0 md:rounded-t-2xl h-20">
           <Container className="w-full h-full flex items-center justify-between">
