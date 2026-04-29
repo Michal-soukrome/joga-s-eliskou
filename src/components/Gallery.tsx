@@ -1,112 +1,60 @@
 "use client";
 import { useEffect, useState } from "react";
+import type { StaticImageData } from "next/image";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
 
-const photos = [
-  {
-    src: "/assets/galerie/IMG_3495.jpeg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/assets/galerie/IMG_9730.JPG",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/assets/galerie/IMG_9852.JPG",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/assets/galerie/IMG_9680.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
+import img3495 from "../../public/assets/galerie/IMG_3495.jpeg";
+import img9730 from "../../public/assets/galerie/IMG_9730.jpg";
+import img9852 from "../../public/assets/galerie/IMG_9852.jpg";
+import img9680 from "../../public/assets/galerie/IMG_9680.jpg";
+import img9870 from "../../public/assets/galerie/IMG_9870.jpg";
+import img9736 from "../../public/assets/galerie/IMG_9736.jpg";
+import img9754 from "../../public/assets/galerie/IMG_9754.jpg";
+import img9757 from "../../public/assets/galerie/IMG_9757.jpg";
+import img9763 from "../../public/assets/galerie/IMG_9763.jpg";
+import img9817 from "../../public/assets/galerie/IMG_9817.jpg";
+import img9826 from "../../public/assets/galerie/IMG_9826.jpg";
+import img9690 from "../../public/assets/galerie/IMG_9690.jpg";
+import img9857 from "../../public/assets/galerie/IMG_9857.jpg";
+import img9865 from "../../public/assets/galerie/IMG_9865.jpg";
+import img9898 from "../../public/assets/galerie/IMG_9898.JPG";
+import img9921 from "../../public/assets/galerie/IMG_9921.jpg";
+import img9922 from "../../public/assets/galerie/IMG_9922.jpg";
+import img9935 from "../../public/assets/galerie/IMG_9935.jpg";
 
-  // Row 6: landscape + 2 portraits beside it
-  {
-    src: "/assets/galerie/IMG_9870.JPG",
-    alt: "",
-    span: "md:col-span-4 md:row-span-3",
-  },
-  {
-    src: "/assets/galerie/IMG_9736.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  // Row 7 fills in:
-  {
-    src: "/assets/galerie/IMG_9754.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/assets/galerie/IMG_9757.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
+type Photo = {
+  src: StaticImageData;
+  alt: string;
+  span: string;
+};
 
-  // Rows 8-9: portrait trio
-  {
-    src: "/assets/galerie/IMG_9763.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/assets/galerie/IMG_9817.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/assets/galerie/IMG_9826.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
+const photos: Photo[] = [
+  { src: img3495, alt: "", span: "md:col-span-2 md:row-span-2" },
+  { src: img9730, alt: "", span: "md:col-span-2 md:row-span-2" },
+  { src: img9852, alt: "", span: "md:col-span-2 md:row-span-2" },
+  { src: img9680, alt: "", span: "md:col-span-2 md:row-span-2" },
 
-  // Rows 10-11: portrait trio
-  {
-    src: "/assets/galerie/IMG_9690.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-2",
-  },
-  {
-    src: "/assets/galerie/IMG_9857.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-1",
-  },
-  {
-    src: "/assets/galerie/IMG_9865.jpg",
-    alt: "",
-    span: "md:col-span-2 md:row-span-3",
-  },
-  {
-    src: "/assets/galerie/IMG_9898.JPG",
-    alt: "",
-    span: "md:col-span-4 md:row-span-2",
-  },
+  { src: img9870, alt: "", span: "md:col-span-4 md:row-span-3" },
+  { src: img9736, alt: "", span: "md:col-span-2 md:row-span-2" },
 
-  // Rows 13-14: portrait pair
+  { src: img9754, alt: "", span: "md:col-span-2 md:row-span-2" },
+  { src: img9757, alt: "", span: "md:col-span-2 md:row-span-2" },
 
-  {
-    src: "/assets/galerie/IMG_9921.jpg",
-    alt: "",
-    span: "md:col-span-3 md:row-span-2",
-  },
+  { src: img9763, alt: "", span: "md:col-span-2 md:row-span-2" },
+  { src: img9817, alt: "", span: "md:col-span-2 md:row-span-2" },
+  { src: img9826, alt: "", span: "md:col-span-2 md:row-span-2" },
 
-  {
-    src: "/assets/galerie/IMG_9922.jpg",
-    alt: "",
-    span: "md:col-span-3 md:row-span-2",
-  },
-  // Row 12: landscape full width
-  {
-    src: "/assets/galerie/IMG_9935.jpg",
-    alt: "",
-    span: "md:col-span-6 md:row-span-3",
-  },
+  { src: img9690, alt: "", span: "md:col-span-2 md:row-span-2" },
+  { src: img9857, alt: "", span: "md:col-span-2 md:row-span-1" },
+  { src: img9865, alt: "", span: "md:col-span-2 md:row-span-3" },
+  { src: img9898, alt: "", span: "md:col-span-4 md:row-span-2" },
+
+  { src: img9921, alt: "", span: "md:col-span-3 md:row-span-2" },
+  { src: img9922, alt: "", span: "md:col-span-3 md:row-span-2" },
+
+  { src: img9935, alt: "", span: "md:col-span-6 md:row-span-3" },
 ];
 
 const INITIAL_COUNT = 6;
@@ -127,8 +75,9 @@ export default function Gallery() {
     const nextImage = new window.Image();
     const prevImage = new window.Image();
 
-    nextImage.src = photos[(lightbox + 1) % photos.length].src;
-    prevImage.src = photos[(lightbox - 1 + photos.length) % photos.length].src;
+    nextImage.src = photos[(lightbox + 1) % photos.length].src.src;
+    prevImage.src =
+      photos[(lightbox - 1 + photos.length) % photos.length].src.src;
 
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -184,13 +133,14 @@ export default function Gallery() {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 auto-rows-[180px] gap-3">
           {visiblePhotos.map((photo, i) => (
             <div
-              key={photo.src}
+              key={photo.src.src}
               className={`${photo.span} relative overflow-hidden rounded-lg cursor-pointer group`}
               onClick={() => openLightbox(i)}
             >
               <Image
                 src={photo.src}
                 alt={photo.alt}
+                placeholder="blur"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 768px) 50vw, 25vw"
@@ -266,12 +216,12 @@ export default function Gallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={photos[lightbox].src.replace(/w=\d+/, "w=1200")}
+              src={photos[lightbox].src}
               alt={photos[lightbox].alt}
               fill
               className="object-contain"
               sizes="100vw"
-              onLoadingComplete={() => setIsLightboxLoading(false)}
+              onLoad={() => setIsLightboxLoading(false)}
             />
             {isLightboxLoading && (
               <div className="absolute inset-0 bg-sky-950/50 flex items-center justify-center">

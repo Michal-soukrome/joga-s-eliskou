@@ -22,6 +22,22 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
   },
+  openGraph: {
+    type: "website",
+    locale: "cs_CZ",
+    siteName: "Power Jóga s Eliškou",
+    title: "Power Jóga s Eliškou",
+    description:
+      "Power jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu.",
+    images: ["/assets/eliska/eliska-cover.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Power Jóga s Eliškou",
+    description:
+      "Power jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu.",
+    images: ["/assets/eliska/eliska-cover.webp"],
+  },
 };
 
 export default function RootLayout({
