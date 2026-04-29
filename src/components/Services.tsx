@@ -100,7 +100,7 @@ export default function Lekce() {
             return (
               <div
                 key={lesson.id}
-                className={`bg-white rounded-xl border transition-all duration-300 overflow-hidden cursor-pointer h-fit ${
+                className={`bg-white rounded-lg border transition-all duration-300 overflow-hidden cursor-pointer h-fit ${
                   isOpen
                     ? "border-sky-300 shadow-md shadow-sky-100"
                     : "border-sky-100 hover:border-sky-200"

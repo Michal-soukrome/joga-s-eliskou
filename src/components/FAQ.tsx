@@ -67,7 +67,7 @@ export default function FAQ() {
           ))}
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-sky-500 via-sky-600 to-sky-700 rounded-xl p-8 text-white text-center shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 transition-all duration-300">
+        <div className="mt-12 bg-gradient-to-r from-sky-500 via-sky-600 to-sky-700 rounded-lg p-8 text-white text-center shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 transition-all duration-300">
           <h3 className="text-2xl font-bold font-poppins mb-3">
             Máte další otázku?
           </h3>

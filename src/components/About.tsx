@@ -83,7 +83,7 @@ export default function About() {
           {/* ── Right: sticky sidebar ── */}
           <aside className="xl:sticky xl:top-28 space-y-4">
             {/* ── Trainer image ── */}
-            <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden bg-sky-50 border border-sky-100 shadow-sm shadow-sky-100/50">
+            <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden bg-sky-50 border border-sky-100 shadow-sm shadow-sky-100/50">
               <Image
                 src="/assets/eliska/IMG_0001.jpg"
                 alt="Eliška Radová - instruktorka jógy"
@@ -108,12 +108,12 @@ export default function About() {
             </div>
 
             {/* ── Credential card ── */}
-            <div className="bg-white border border-sky-100 rounded-2xl p-6 shadow-sm shadow-sky-100/50">
+            <div className="bg-white border border-sky-100 rounded-lg p-6 shadow-sm shadow-sky-100/50">
               <div className="space-y-2">
                 {credentials.map((c, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-3 rounded-xl bg-sky-50/60 hover:bg-sky-50 transition-colors"
+                    className="flex items-start gap-3 p-3 rounded-lg bg-sky-50/60 hover:bg-sky-50 transition-colors"
                   >
                     <span className="mt-0.5 text-sky-400 text-sm">✓</span>
                     <div>

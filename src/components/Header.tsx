@@ -182,7 +182,7 @@ export default function Header() {
                 openModal();
                 setOpen(false);
               }}
-              className="w-full py-3 bg-sky-600 text-white rounded-md text-sm uppercase tracking-[0.2em] font-medium hover:bg-sky-700 transition"
+              className="w-full py-3 bg-sky-600 text-white rounded-lg text-sm uppercase tracking-[0.2em] font-medium hover:bg-sky-700 transition"
             >
               Rezervovat
             </button>

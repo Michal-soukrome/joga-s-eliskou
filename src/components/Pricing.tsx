@@ -65,7 +65,7 @@ export default function Pricing() {
           {pricingPlans.map((plan) => (
             <div
               key={plan.id}
-              className={`relative flex flex-col rounded-xl p-6 transition-all duration-300 group ${
+              className={`relative flex flex-col rounded-lg p-6 transition-all duration-300 group ${
                 plan.highlighted
                   ? "border-2 border-sky-400 bg-sky-50 shadow-lg shadow-sky-100"
                   : "border border-sky-100 bg-white shadow-sm hover:border-sky-300 hover:shadow-md hover:shadow-sky-100"
@@ -124,7 +124,7 @@ export default function Pricing() {
         </div>
 
         {/* Footer note */}
-        <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl px-6 py-5 bg-sky-50 border border-sky-100">
+        <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-lg px-6 py-5 bg-sky-50 border border-sky-100">
           <p className="text-sm text-sky-700">
             Všechny ceny jsou bez DPH. Individuální lekce a speciální programy
             na vyžádání.

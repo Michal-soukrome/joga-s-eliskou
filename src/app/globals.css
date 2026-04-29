@@ -199,6 +199,6 @@ html {
   }
 
   .card-elevated {
-    @apply rounded-xl border border-sky-100 bg-gradient-to-br from-sky-50 to-white shadow-lg hover:shadow-xl hover:border-sky-300 transition-all duration-300;
+    @apply rounded-lg border border-sky-100 bg-gradient-to-br from-sky-50 to-white shadow-lg hover:shadow-xl hover:border-sky-300 transition-all duration-300;
   }
 }

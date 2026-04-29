@@ -115,7 +115,7 @@ export default function Benefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="group relative bg-gradient-to-br from-sky-100/75 to-white border border-sky-100 rounded-xl p-8 hover:border-sky-300 hover:shadow-2xl hover:shadow-sky-200/40 transition-all duration-300"
+              className="group relative bg-gradient-to-br from-sky-100/75 to-white border border-sky-100 rounded-lg p-8 hover:border-sky-300 hover:shadow-2xl hover:shadow-sky-200/40 transition-all duration-300"
             >
               {/* Background accent */}
               <div className="absolute top-0 right-0 w-24 h-24 bg-sky-200 rounded-full -z-10 opacity-0 group-hover:opacity-20 transition-all duration-500 blur-3xl"></div>

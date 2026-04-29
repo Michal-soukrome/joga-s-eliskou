@@ -200,7 +200,7 @@ export default function Gallery() {
           {photos.map((photo, i) => (
             <div
               key={i}
-              className={`${photo.span} relative overflow-hidden rounded-3xl cursor-pointer group`}
+              className={`${photo.span} relative overflow-hidden rounded-lg cursor-pointer group`}
               onClick={() => openLightbox(i)}
             >
               <Image
@@ -267,7 +267,7 @@ export default function Gallery() {
 
           {/* Image */}
           <div
-            className="relative w-full max-w-4xl aspect-[4/3] rounded-2xl overflow-hidden"
+            className="relative w-full max-w-4xl aspect-[4/3] rounded-lg overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <Image

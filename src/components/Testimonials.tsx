@@ -135,7 +135,7 @@ export default function Testimonials() {
               <div
                 key={t.id}
                 onClick={() => remapped !== 0 && setActive(i)}
-                className="absolute w-full max-w-md bg-white border border-sky-100 rounded-2xl p-8 shadow-sm"
+                className="absolute w-full max-w-md bg-white border border-sky-100 rounded-lg p-8 shadow-sm"
                 style={{
                   transform: `translateX(${translateX}%) translateY(${translateY}px) scale(${scale})`,
                   zIndex,

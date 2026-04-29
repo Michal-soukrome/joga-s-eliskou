@@ -45,7 +45,7 @@ export default function ReservationModal() {
 
       {/* Modal container */}
       <div
-        className="relative z-10 w-full bg-white overflow-hidden flex flex-col md:rounded-2xl md:shadow-2xl"
+        className="relative z-10 w-full bg-white overflow-hidden flex flex-col md:rounded-lg md:shadow-2xl"
         style={{
           maxWidth: "min(1100px, 98vw)",
           height: "85dvh",
@@ -69,7 +69,7 @@ export default function ReservationModal() {
               <button
                 onClick={closeModal}
                 aria-label="Zavřít"
-                className="flex items-center justify-center w-9 h-9 text-sky-400 hover:text-sky-800 hover:bg-sky-100 rounded-xl transition-all duration-150"
+                className="flex items-center justify-center w-9 h-9 text-sky-400 hover:text-sky-800 hover:bg-sky-100 rounded-lg transition-all duration-150"
               >
                 <svg
                   className="w-5 h-5"
