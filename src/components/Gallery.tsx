@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { TouchEvent } from "react";
 import type { StaticImageData } from "next/image";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
@@ -63,9 +64,55 @@ export default function Gallery() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [isLightboxLoading, setIsLightboxLoading] = useState(false);
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const touchWasSwipe = useRef(false);
 
   const visiblePhotos = photos.slice(0, visibleCount);
   const hasMore = visibleCount < photos.length;
+
+  const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
+    const touch = event.touches[0];
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
+    touchWasSwipe.current = false;
+  };
+
+  const handleTouchMove = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const touch = event.touches[0];
+    const dx = touch.clientX - touchStartX.current;
+    const dy = touch.clientY - touchStartY.current;
+    if (Math.abs(dx) > 10 || Math.abs(dy) > 10) {
+      touchWasSwipe.current = true;
+    }
+  };
+
+  const handleTouchEnd = (event: TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartX.current;
+    const deltaY = touch.clientY - touchStartY.current;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+    const swipeThreshold = 50;
+
+    if (absX > swipeThreshold && absX > absY) {
+      event.preventDefault();
+      setLightbox((current) => {
+        if (current === null) return null;
+        return deltaX < 0
+          ? (current + 1) % photos.length
+          : (current - 1 + photos.length) % photos.length;
+      });
+      setIsLightboxLoading(true);
+      touchWasSwipe.current = true;
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+  };
 
   useEffect(() => {
     if (lightbox === null) return;
@@ -173,7 +220,16 @@ export default function Gallery() {
       {lightbox !== null && (
         <div
           className="fixed inset-0 z-50 bg-sky-950/90 backdrop-blur-sm flex items-center justify-center p-6"
-          onClick={() => setLightbox(null)}
+          onClick={() => {
+            if (touchWasSwipe.current) {
+              touchWasSwipe.current = false;
+              return;
+            }
+            setLightbox(null);
+          }}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           <button
             className="absolute top-5 right-5 w-10 h-10 z-50 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
