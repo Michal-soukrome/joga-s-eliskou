@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-bl from-sky-50/50 via-white to-sky-100/50 text-sky-600 py-14 px-6 border-t border-sky-100">
+    <footer className="bg-gradient-to-br from-sky-50/50 via-white to-sky-100/50 text-sky-600 py-14 px-6 border-t border-sky-100">
       <Container>
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}

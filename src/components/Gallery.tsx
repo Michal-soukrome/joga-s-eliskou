@@ -118,7 +118,7 @@ export default function Gallery() {
   return (
     <section
       id="gallery"
-      className="scroll-mt-16 py-16 md:py-24 px-6 bg-gradient-to-br from-sky-50/50 via-white to-sky-100/50"
+      className="scroll-mt-16 py-16 md:py-24 px-6 bg-gradient-to-tr from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
         <SectionTitle
