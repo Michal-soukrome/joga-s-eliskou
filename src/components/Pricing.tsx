@@ -134,17 +134,6 @@ export default function Pricing() {
             </div>
           ))}
         </div>
-
-        {/* Footer note */}
-        <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-lg px-6 py-5 bg-sky-50 border border-sky-100">
-          <p className="text-sm text-sky-700">
-            Všechny ceny jsou bez DPH. Individuální lekce a speciální programy
-            na vyžádání.
-          </p>
-          <a href="#contact" className="inline-block btn-primary shrink-0">
-            Napište mi zprávu
-          </a>
-        </div>
       </Container>
     </section>
   );
