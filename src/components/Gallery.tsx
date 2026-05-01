@@ -119,6 +119,16 @@ export default function Gallery() {
 
     setIsLightboxLoading(true);
 
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalBodyTouchAction = document.body.style.touchAction;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const originalHtmlTouchAction = document.documentElement.style.touchAction;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.touchAction = "none";
+
     const nextImage = new window.Image();
     const prevImage = new window.Image();
 
@@ -154,6 +164,10 @@ export default function Gallery() {
       nextImage.src = "";
       prevImage.src = "";
       window.removeEventListener("keydown", handleKeydown);
+      document.body.style.overflow = originalBodyOverflow;
+      document.body.style.touchAction = originalBodyTouchAction;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      document.documentElement.style.touchAction = originalHtmlTouchAction;
     };
   }, [lightbox]);
 
