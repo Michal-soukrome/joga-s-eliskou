@@ -122,17 +122,11 @@ export default function Lekce() {
                       {lesson.subtitle}
                     </p>
                   </div>
-                  <div
-                    className={`mt-1 shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-300 ${
-                      isOpen ? "border-sky-400 bg-sky-50" : "border-sky-200"
-                    }`}
+                  <span
+                    className={`inline-flex shrink-0 w-5 h-5 items-center justify-center text-sky-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                   >
-                    <span
-                      className={`inline-block transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                    >
-                      ▼
-                    </span>
-                  </div>
+                    ▼
+                  </span>
                 </div>
 
                 {/* Expandable body */}
