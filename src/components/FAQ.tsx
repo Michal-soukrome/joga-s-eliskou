@@ -56,7 +56,7 @@ export default function FAQ() {
                 <h3 className="font-semibold text-sky-900 text-base pr-4 group-hover:text-sky-700 transition-colors">
                   {faq.question}
                 </h3>
-                <span className="flex-shrink-0 text-sky-500 group-open:rotate-180 transition-transform text-xl">
+                <span className="flex-shrink-0 text-sky-500 group-open:rotate-180 transition-transform text-base">
                   ▼
                 </span>
               </summary>

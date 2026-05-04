@@ -8,7 +8,7 @@ const lessons = [
   {
     id: 1,
     number: "",
-    title: "Power Jóga",
+    title: "Power jóga",
     subtitle: "Dynamická, posilující praxe s výdržemi v pozicích",
     steps: [
       {
@@ -123,7 +123,7 @@ export default function Lekce() {
                     </p>
                   </div>
                   <div
-                    className={`mt-1 shrink-0 w-7 h-7 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                    className={`mt-1 shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-all duration-300 ${
                       isOpen ? "border-sky-400 bg-sky-50" : "border-sky-200"
                     }`}
                   >
