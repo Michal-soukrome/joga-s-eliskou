@@ -5,11 +5,12 @@ import Benefits from "@/components/Benefits";
 import Pricing from "@/components/Pricing";
 import Reservations from "@/components/Reservations";
 import Testimonials from "@/components/Testimonials";
+import Gallery from "@/components/Gallery";
+import OnlineVideos from "@/components/OnlineVideos";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       {/* <Reservations /> */}
       <Testimonials />
       <Gallery />
+      <OnlineVideos />
       <FAQ />
       <Contact />
       <Footer />

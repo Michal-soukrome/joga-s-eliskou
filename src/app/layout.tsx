@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import "./globals.css";
 import { ReservationProvider } from "@/context/ReservationContext";
+import { AuthProvider } from "@/context/AuthContext";
 import ReservationModal from "@/components/ReservationModal";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 
@@ -49,11 +51,13 @@ export default function RootLayout({
     <html lang="cs" className={`${poppins.variable}`}>
       <head />
       <body className="bg-sky-50 font-poppins">
-        <ReservationProvider>
-          {children}
-          <ReservationModal />
-          <CookieConsentBanner />
-        </ReservationProvider>
+        <AuthProvider>
+          <ReservationProvider>
+            {children}
+            <ReservationModal />
+            <CookieConsentBanner />
+          </ReservationProvider>
+        </AuthProvider>
       </body>
     </html>
   );
