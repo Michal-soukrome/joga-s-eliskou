@@ -24,18 +24,27 @@ interface VideoLesson {
 
 function isEmbeddableUrl(url: string): boolean {
   return (
-    isYouTubeUrl(url) || url.includes("vimeo.com") || url.includes("loom.com")
+    isYouTubeUrl(url) ||
+    url.includes("youtu.be") || // ← catch short links even if ID parse fails
+    url.includes("youtube.com") ||
+    url.includes("vimeo.com") ||
+    url.includes("loom.com")
   );
 }
 
 function getEmbedUrl(url: string): string {
+  // Try regex-based conversion first
   const embedYt = getYouTubeEmbedUrl(url);
   if (embedYt) return embedYt;
 
   const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-  if (vimeoMatch) {
-    return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
-  }
+  if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+
+  // Nuclear fallback: catch any youtu.be or youtube.com/watch that slipped through
+  const ytFallback = url.match(
+    /(?:youtu\.be\/|youtube\.com\/watch\?.*v=)([a-zA-Z0-9_-]{11})/,
+  );
+  if (ytFallback) return `https://www.youtube.com/embed/${ytFallback[1]}`;
 
   return url;
 }

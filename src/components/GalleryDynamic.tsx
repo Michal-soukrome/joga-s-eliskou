@@ -80,7 +80,11 @@ export default function GalleryDynamic() {
       className="scroll-mt-16 py-16 md:py-24 px-6 bg-gradient-to-br from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
-        <SectionTitle title="Fotky z lekcí" accentColor="sky" />
+        <SectionTitle
+          title="Fotky z lekcí"
+          subtitle="Nahlédněte do atmosféry lekcí"
+          accentColor="sky"
+        />
       </Container>
 
       {/* Gallery Images Grid */}

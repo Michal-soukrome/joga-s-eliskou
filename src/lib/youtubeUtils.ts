@@ -29,7 +29,13 @@ export function getYouTubeThumbnail(videoId: string): string {
  */
 export function getYouTubeEmbedUrl(url: string): string | null {
   const id = getYouTubeId(url);
-  return id ? `https://www.youtube.com/embed/${id}` : null;
+  if (id) return `https://www.youtube.com/embed/${id}`;
+
+  // Fallback: if it's a youtu.be short link but regex somehow missed it
+  const shortMatch = url.match(/youtu\.be\/([^?&/]+)/);
+  if (shortMatch) return `https://www.youtube.com/embed/${shortMatch[1]}`;
+
+  return null;
 }
 
 /**

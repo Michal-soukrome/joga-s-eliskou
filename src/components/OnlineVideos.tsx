@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
+import { getYouTubeEmbedUrl, isYouTubeUrl } from "@/lib/youtubeUtils";
 
 interface VideoLesson {
   id: string;
@@ -137,10 +138,14 @@ export default function OnlineVideos() {
             </button>
             <div className="relative aspect-video bg-black">
               <iframe
-                src={selectedVideo.video_url}
+                src={
+                  isYouTubeUrl(selectedVideo.video_url)
+                    ? getYouTubeEmbedUrl(selectedVideo.video_url)!
+                    : selectedVideo.video_url
+                }
                 className="w-full h-full"
                 allowFullScreen
-                allow="autoplay; fullscreen"
+                allow="autoplay; fullscreen; encrypted-media"
               />
             </div>
             <div className="mt-4 bg-white rounded-lg p-4">

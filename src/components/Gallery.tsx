@@ -87,11 +87,7 @@ export default function Gallery() {
       className="scroll-mt-16 py-16 md:py-24 px-6 bg-gradient-to-tr from-sky-50/50 via-white to-sky-100/50"
     >
       <Container>
-        <SectionTitle
-          title="Galerie"
-          subtitle="Nahlédněte do atmosféry lekcí"
-          accentColor="emerald"
-        />
+        <SectionTitle title="Galerie" accentColor="emerald" />
       </Container>
 
       <div className="mt-12 md:px-6 max-w-7xl mx-auto">

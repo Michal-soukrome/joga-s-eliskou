@@ -14,9 +14,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Power Jóga s Eliškou",
+  title: "Jóga s Eliškou",
   description:
-    "Power jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu. Rezervace online přes Reservio.",
+    "Power jóga v Berouně pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu. Rezervace online přes Reservio.",
   keywords:
     "jóga, power jóga, wellness, meditace, fitness, mindfulness, Beroun, Eliška Radová, Studio Yogaway",
   icons: {
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "cs_CZ",
-    siteName: "Power Jóga s Eliškou",
-    title: "Power Jóga s Eliškou",
+    siteName: "Jóga s Eliškou",
+    title: "Jóga s Eliškou",
     description:
       "Power jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu.",
     images: ["/assets/eliska/eliska-cover.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Power Jóga s Eliškou",
+    title: "Jóga s Eliškou",
     description:
       "Power jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu.",
     images: ["/assets/eliska/eliska-cover.webp"],
