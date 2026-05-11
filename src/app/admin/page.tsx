@@ -77,11 +77,7 @@ export default function AdminLogin() {
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 disabled:bg-emerald-400 text-white font-semibold py-2 rounded-lg transition"
-          >
+          <button type="submit" disabled={isLoading} className="btn-primary">
             {isLoading ? "Přihlašuji..." : "Přihlásit se"}
           </button>
         </form>
