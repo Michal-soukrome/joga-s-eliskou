@@ -22,6 +22,22 @@ export default function OnlineVideos() {
     fetchVideos();
   }, []);
 
+  useEffect(() => {
+    if (selectedVideo === null) {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
+    };
+  }, [selectedVideo]);
+
   const fetchVideos = async () => {
     try {
       const response = await fetch("/api/videos", {

@@ -43,6 +43,22 @@ export default function GalleryDynamic() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxIndex, galleryImages.length]);
 
+  useEffect(() => {
+    if (lightboxIndex === null) {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
+    };
+  }, [lightboxIndex]);
+
   const fetchGalleryImages = async () => {
     try {
       const response = await fetch("/api/gallery", { cache: "no-store" });
