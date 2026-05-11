@@ -47,54 +47,55 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 w-full h-20 z-50 transition-all duration-300 border-b border-sky-100 shadow-sm shadow-sky-100/50 backdrop-blur-md ${
-        scrolled ? "bg-white/80" : "bg-white/80"
-      }`}
-    >
-      <nav className="px-6 h-full">
-        <Container className="h-full flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="h-full flex items-center gap-3">
-            <div className="w-px h-7 bg-sky-500" />
-            <span className="font-poppins text-xl font-bold text-sky-900 tracking-tight">
-              Power jóga s <span className="text-sky-500">Eliškou</span>
-            </span>
-          </a>
+    <>
+      <header
+        className={`fixed top-0 w-full h-20 z-50 transition-all duration-300 border-b border-sky-100 shadow-sm shadow-sky-100/50 backdrop-blur-md ${
+          scrolled ? "bg-white/80" : "bg-white/80"
+        }`}
+      >
+        <nav className="px-6 h-full">
+          <Container className="h-full flex items-center justify-between">
+            {/* Logo */}
+            <a href="#" className="h-full flex items-center gap-3">
+              <div className="w-px h-7 bg-sky-500" />
+              <span className="font-poppins text-xl font-bold text-sky-900 tracking-tight">
+                Power jóga s <span className="text-sky-500">Eliškou</span>
+              </span>
+            </a>
 
-          <ul className="hidden xl:flex items-center">
-            {[
-              ["O mně", "#about"],
-              ["Lekce", "#services"],
-              ["Ceník", "#pricing"],
-              ["Recenze", "#testimonials"],
-              ["Galerie", "#gallery"],
-              ["FAQ", "#faq"],
-              ["Kontakt", "#contact"],
-            ].map(([label, href]) => (
-              <li key={href}>
-                <SmartLink
-                  href={href}
-                  className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-sm uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline p-4"
+            <ul className="hidden xl:flex items-center">
+              {[
+                ["O mně", "#about"],
+                ["Lekce", "#services"],
+                ["Ceník", "#pricing"],
+                ["Recenze", "#testimonials"],
+                ["Galerie", "#gallery"],
+                ["FAQ", "#faq"],
+                ["Kontakt", "#contact"],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <SmartLink
+                    href={href}
+                    className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-sm uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline p-4"
+                  >
+                    {label}
+                  </SmartLink>
+                </li>
+              ))}
+
+              <li>
+                <button
+                  onClick={openModal}
+                  className="btn-primary ml-2 !uppercase"
                 >
-                  {label}
-                </SmartLink>
+                  Rezervovat
+                </button>
               </li>
-            ))}
 
-            <li>
-              <button
-                onClick={openModal}
-                className="btn-primary ml-2 !uppercase"
-              >
-                Rezervovat
-              </button>
-            </li>
-
-            {/* Divider 
+              {/* Divider 
             <li aria-hidden className="w-px h-4 bg-sky-200 rounded-full" />
             */}
-            {/* Social icons 
+              {/* Social icons 
             {socials.map(({ label, href, icon }) => (
               <li key={label}>
                 <a
@@ -109,89 +110,97 @@ export default function Header() {
               </li>
             ))}
               */}
-          </ul>
+            </ul>
 
-          {/* Hamburger */}
-          <button
-            className="xl:hidden relative w-8 h-8 flex flex-col justify-center items-center"
-            onClick={() => setOpen(!open)}
-          >
-            <span
-              className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""}`}
-            />
-            <span
-              className={`w-6 h-0.5 bg-sky-700 rounded my-1 transition-all duration-300 ${open ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""}`}
-            />
-          </button>
-        </Container>
-      </nav>
+            {/* Hamburger */}
+            <button
+              className="xl:hidden relative w-8 h-8 flex flex-col justify-center items-center"
+              onClick={() => setOpen(!open)}
+            >
+              <span
+                className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""}`}
+              />
+              <span
+                className={`w-6 h-0.5 bg-sky-700 rounded my-1 transition-all duration-300 ${open ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`w-6 h-0.5 bg-sky-700 rounded transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""}`}
+              />
+            </button>
+          </Container>
+        </nav>
 
-      {/* Mobile menu */}
-      <div
-        className={`xl:hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-lg shadow-sky-100/40 transition-all duration-300 overflow-hidden ${
-          open ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <ul className="flex flex-col px-6 py-6 gap-6 text-start">
-          {[
-            ["O mně", "#about"],
-            ["Lekce", "#services"],
-            ["Ceník", "#pricing"],
-            ["Recenze", "#testimonials"],
-            ["Galerie", "#gallery"],
-            ["FAQ", "#faq"],
-            ["Kontakt", "#contact"],
-          ].map(([label, href]) => (
-            <li key={href}>
-              <SmartLink
-                href={href}
-                onClick={() => setOpen(false)}
-                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-sm uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline p-2"
+        {/* Mobile menu */}
+        <div
+          className={`xl:hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-lg shadow-sky-100/40 transition-all duration-300 overflow-hidden ${
+            open ? "max-h-[36rem] opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <ul className="flex flex-col px-6 py-6 gap-6 text-start">
+            {[
+              ["O mně", "#about"],
+              ["Lekce", "#services"],
+              ["Ceník", "#pricing"],
+              ["Recenze", "#testimonials"],
+              ["Galerie", "#gallery"],
+              ["FAQ", "#faq"],
+              ["Kontakt", "#contact"],
+            ].map(([label, href]) => (
+              <li key={href}>
+                <SmartLink
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-sm uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline p-2"
+                >
+                  {label}
+                </SmartLink>
+              </li>
+            ))}
+
+            {/* Social row */}
+            <li>
+              <div className="flex items-center gap-6 pt-6 border-t border-sky-100">
+                {socials.map(({ label, href, icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sky-400 hover:text-sky-600 transition-colors text-sm font-medium"
+                  >
+                    {icon}
+                    <span className="text-xs uppercase tracking-[0.15em]">
+                      {label}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </li>
+
+            <li className="flex gap-2">
+              <button
+                onClick={() => {
+                  openModal();
+                  setOpen(false);
+                }}
+                className="w-full btn-primary"
               >
-                {label}
+                Rezervovat
+              </button>
+              <SmartLink href="/lekce" className="w-full btn-secondary">
+                Online lekce
               </SmartLink>
             </li>
-          ))}
-
-          {/* Social row */}
-          <li>
-            <div className="flex items-center gap-6 pt-6 border-t border-sky-100">
-              {socials.map(({ label, href, icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sky-400 hover:text-sky-600 transition-colors text-sm font-medium"
-                >
-                  {icon}
-                  <span className="text-xs uppercase tracking-[0.15em]">
-                    {label}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </li>
-
-          <li className="flex gap-2">
-            <button
-              onClick={() => {
-                openModal();
-                setOpen(false);
-              }}
-              className="w-full btn-primary"
-            >
-              Rezervovat
-            </button>
-            <SmartLink href="/lekce" className="w-full btn-secondary">
-              Online lekce
-            </SmartLink>
-          </li>
-        </ul>
-      </div>
-    </header>
+          </ul>
+        </div>
+      </header>
+      {/* Overlay */}
+      {open && (
+        <div
+          className="fixed inset-0 bg-black/30 z-40 transition-opacity duration-300 xl:hidden"
+          onClick={() => setOpen(false)}
+        />
+      )}
+    </>
   );
 }
