@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "@/components/Container";
 import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
@@ -60,6 +60,26 @@ export default function Gallery() {
   const hasMore = visibleCount < photos.length;
 
   const openLightbox = (index: number) => setLightbox(index);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        setLightbox((lightbox - 1 + photos.length) % photos.length);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        setLightbox((lightbox + 1) % photos.length);
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        setLightbox(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightbox, photos.length]);
 
   return (
     <section

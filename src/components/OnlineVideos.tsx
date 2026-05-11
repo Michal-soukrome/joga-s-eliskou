@@ -70,7 +70,7 @@ export default function OnlineVideos() {
       <Container>
         <SectionTitle
           title="Online Lekce"
-          subtitle="Leťte s jógou z domova"
+          subtitle="Cvič se mnou kdykoliv a odkudkoliv ✨ Nové lekce jógy každý týden, videa kdykoliv k dispozici a pravidelná dávka pohybu pro tvoje tělo i mysl."
           accentColor="emerald"
         />
 

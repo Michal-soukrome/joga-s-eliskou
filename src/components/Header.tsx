@@ -2,6 +2,7 @@
 import Container from "@/components/Container";
 import { useReservation } from "@/context/ReservationContext";
 import { useState, useEffect } from "react";
+import { SmartLink } from "./SmartLink";
 
 const socials = [
   {
@@ -61,7 +62,6 @@ export default function Header() {
             </span>
           </a>
 
-          {/* Desktop menu */}
           <ul className="hidden xl:flex items-center">
             {[
               ["O mně", "#about"],
@@ -73,12 +73,12 @@ export default function Header() {
               ["Kontakt", "#contact"],
             ].map(([label, href]) => (
               <li key={href}>
-                <a
+                <SmartLink
                   href={href}
                   className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-sm uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline p-4"
                 >
                   {label}
-                </a>
+                </SmartLink>
               </li>
             ))}
 

@@ -15,11 +15,33 @@ interface GalleryImage {
 export default function GalleryDynamic() {
   const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [lightboxImage, setLightboxImage] = useState<GalleryImage | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   useEffect(() => {
     fetchGalleryImages().finally(() => setIsLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        setLightboxIndex(
+          (lightboxIndex - 1 + galleryImages.length) % galleryImages.length,
+        );
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        setLightboxIndex((lightboxIndex + 1) % galleryImages.length);
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        setLightboxIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex, galleryImages.length]);
 
   const fetchGalleryImages = async () => {
     try {
@@ -65,11 +87,11 @@ export default function GalleryDynamic() {
       {galleryImages.length > 0 && (
         <div className="mt-12 md:px-6 max-w-7xl mx-auto mb-16">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 auto-rows-[180px] gap-3">
-            {galleryImages.map((image) => (
+            {galleryImages.map((image, index) => (
               <div
                 key={image.id}
                 className={`${image.span || "md:col-span-2 md:row-span-2"} relative overflow-hidden rounded-lg cursor-pointer group`}
-                onClick={() => setLightboxImage(image)}
+                onClick={() => setLightboxIndex(index)}
               >
                 <img
                   src={image.url}
@@ -88,28 +110,88 @@ export default function GalleryDynamic() {
       )}
 
       {/* Image Lightbox */}
-      {lightboxImage && (
+      {lightboxIndex !== null && (
         <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
-          onClick={() => setLightboxImage(null)}
+          className="fixed inset-0 z-50 bg-sky-950/90 backdrop-blur-sm flex items-center justify-center p-6"
+          onClick={() => setLightboxIndex(null)}
         >
-          <div className="relative max-w-4xl w-full">
-            <img
-              src={lightboxImage.url}
-              alt={lightboxImage.alt}
-              className="w-full h-auto rounded-lg"
-            />
-            <button
-              className="absolute top-4 right-4 bg-white/80 hover:bg-white text-slate-900 rounded-full w-10 h-10 flex items-center justify-center transition-colors"
-              onClick={() => setLightboxImage(null)}
+          <button
+            className="absolute top-5 right-5 w-10 h-10 z-50 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
+            onClick={() => setLightboxIndex(null)}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
-              ✕
-            </button>
-            {lightboxImage.title && (
-              <div className="mt-4 text-white">
-                <h3 className="text-lg font-semibold">{lightboxImage.title}</h3>
-              </div>
-            )}
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+          <button
+            className="absolute left-5 w-10 h-10 z-50 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex(
+                (lightboxIndex - 1 + galleryImages.length) %
+                  galleryImages.length,
+              );
+            }}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <div
+            className="relative w-full h-dvh overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={galleryImages[lightboxIndex].url}
+              alt={galleryImages[lightboxIndex].alt}
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <button
+            className="absolute right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition flex items-center justify-center text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightboxIndex((lightboxIndex + 1) % galleryImages.length);
+            }}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+          <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+            {galleryImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightboxIndex(i);
+                }}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${i === lightboxIndex ? "bg-white w-4" : "bg-white/40"}`}
+              />
+            ))}
           </div>
         </div>
       )}

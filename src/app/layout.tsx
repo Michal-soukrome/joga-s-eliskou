@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-// eslint-disable-next-line import/no-extraneous-dependencies
 import "./globals.css";
 import { ReservationProvider } from "@/context/ReservationContext";
 import { AuthProvider } from "@/context/AuthContext";
 import ReservationModal from "@/components/ReservationModal";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import { RootLayoutClient } from "@/app/RootLayoutClient";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -48,12 +48,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="cs" className={`${poppins.variable}`}>
-      <head />
+    <html lang="cs" className={poppins.variable}>
       <body className="bg-sky-50 font-poppins">
         <AuthProvider>
           <ReservationProvider>
-            {children}
+            <RootLayoutClient>{children}</RootLayoutClient>
+
             <ReservationModal />
             <CookieConsentBanner />
           </ReservationProvider>
