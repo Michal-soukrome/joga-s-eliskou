@@ -146,13 +146,13 @@ export default function Header() {
             ["Kontakt", "#contact"],
           ].map(([label, href]) => (
             <li key={href}>
-              <a
+              <SmartLink
                 href={href}
                 onClick={() => setOpen(false)}
-                className="block text-sky-700 text-sm uppercase tracking-[0.2em] font-medium hover:text-sky-900 transition"
+                className="text-sky-600 hover:text-sky-900 transition-all duration-200 text-sm uppercase tracking-[0.2em] font-medium hover:opacity-75 hover:underline p-2"
               >
                 {label}
-              </a>
+              </SmartLink>
             </li>
           ))}
 
@@ -176,16 +176,19 @@ export default function Header() {
             </div>
           </li>
 
-          <li>
+          <li className="flex gap-2">
             <button
               onClick={() => {
                 openModal();
                 setOpen(false);
               }}
-              className="w-full py-3 bg-sky-600 text-white rounded-lg text-sm uppercase tracking-[0.2em] font-medium hover:bg-sky-700 transition"
+              className="w-full btn-primary"
             >
               Rezervovat
             </button>
+            <SmartLink href="/lekce" className="w-full btn-secondary">
+              Online lekce
+            </SmartLink>
           </li>
         </ul>
       </div>

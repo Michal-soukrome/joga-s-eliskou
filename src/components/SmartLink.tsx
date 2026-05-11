@@ -4,16 +4,22 @@ import Link from "next/link";
 interface SmartLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: React.ReactNode;
+  onClick?: () => void;
 }
 
-export function SmartLink({ href, children, ...props }: SmartLinkProps) {
+export function SmartLink({
+  href,
+  children,
+  onClick,
+  ...props
+}: SmartLinkProps) {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
   const finalHref = isHome ? href : `/${href}`;
 
   return (
-    <Link href={finalHref} {...props}>
+    <Link href={finalHref} {...props} onClick={onClick}>
       {children}
     </Link>
   );
