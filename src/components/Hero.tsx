@@ -41,7 +41,7 @@ export default function Hero() {
           <p className="text-white/75 leading-relaxed text-sm md:text-base font-poppins max-w-lg">
             certifikovaná lektorka jógy
             <span className="mx-1">•</span>
-            lekce pro začátečníky a mírně pokročilé
+            lekce pro začátečníky a pokročilé
           </p>
 
           {/* CTAs */}
