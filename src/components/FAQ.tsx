@@ -3,7 +3,7 @@ import Container from "@/components/Container";
 
 const faqs = [
   {
-    question: "Je power jóga vhodná pro začátečníky?",
+    question: "Je Jóga vhodná pro začátečníky?",
     answer:
       "Nabízím lekce pro všechny úrovně - začátečníky i pokročilé. Každá lekce je plně přizpůsobitelná tvé fyzické kondici.",
   },
@@ -43,7 +43,7 @@ export default function FAQ() {
       <Container size="4xl">
         <SectionTitle
           title="Často kladené otázky"
-          subtitle="Najdi odpovědi na nejčastější otázky o power józe a lekcích"
+          subtitle="Najdi odpovědi na nejčastější otázky o józe a lekcích"
         />
 
         <div className="space-y-4">

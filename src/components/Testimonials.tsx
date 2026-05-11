@@ -34,7 +34,7 @@ const testimonials = [
     name: "Denisa",
     role: "",
     content:
-      "Absolutně nejlepší jóga v Berouně!😍 Power jóga je pro mě ideální volba. Na lekci u Elišky si zamakám, ale zároveň i zklidním svoji mysl.🙏🏻",
+      "Absolutně nejlepší jóga v Berouně!😍 Jóga je pro mě ideální volba. Na lekci u Elišky si zamakám, ale zároveň i zklidním svoji mysl.🙏🏻",
     rating: 5,
   },
 ];

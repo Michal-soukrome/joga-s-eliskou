@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/assets/eliska/eliska-cover.png"
-          alt="Eliška Radová - Power Jóga"
+          alt="Eliška Radová - Jóga"
           fill
           className="object-cover object-center"
           priority
@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="max-w-xl space-y-6">
           {/* Location */}
           <span className="hidden md:flex text-[11px] uppercase tracking-[0.35em] text-sky-200/80 font-semibold font-poppins">
-            Power Jóga · Beroun
+            Jóga · Beroun
           </span>
 
           {/* Headline */}

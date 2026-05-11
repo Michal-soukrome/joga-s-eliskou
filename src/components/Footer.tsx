@@ -14,7 +14,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-px h-7 bg-sky-500"></div>
               <span className="font-poppins text-xl font-bold text-sky-900 tracking-tight">
-                Power jóga s <span className="text-sky-500">Eliškou</span>
+                Jóga s <span className="text-sky-500">Eliškou</span>
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-sm">

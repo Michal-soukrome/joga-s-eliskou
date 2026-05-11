@@ -9,7 +9,7 @@ const chapters = [
   },
   {
     label: "Hledání stylu",
-    text: `Vystřídala jsem hodně stylů - od zdravotních lekcí, přes hatha jógu, až po dynamické lekce jako vinyasa nebo power jóga. Postupem času jsem zjistila, že ač moje átman prahne po dynamice, ve spoustě případů nacházím útěchu právě v pomalé jemné flow.`,
+    text: `Vystřídala jsem hodně stylů - od zdravotních lekcí, přes hatha jógu, až po dynamické lekce jako vinyasa nebo Jóga. Postupem času jsem zjistila, že ač moje átman prahne po dynamice, ve spoustě případů nacházím útěchu právě v pomalé jemné flow.`,
   },
   {
     label: "Lektorský kurz",

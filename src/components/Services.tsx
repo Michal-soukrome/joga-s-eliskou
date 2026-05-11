@@ -9,7 +9,7 @@ const lessons = [
   {
     id: 1,
     number: "",
-    title: "Power jóga",
+    title: "Jóga",
     subtitle: "Dynamická, posilující praxe s výdržemi v pozicích",
     steps: [
       {
