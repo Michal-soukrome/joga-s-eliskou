@@ -103,7 +103,7 @@ export default function VideoDashboard() {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.push("/admin/login");
+      router.push("/admin");
     }
   }, [isAuthenticated, isLoading, router]);
 
@@ -432,7 +432,7 @@ export default function VideoDashboard() {
 
   const handleLogout = () => {
     logout();
-    router.push("/admin/login");
+    router.push("/admin");
   };
 
   if (isLoading) {
@@ -517,9 +517,9 @@ export default function VideoDashboard() {
       <div className="border-b bg-white shadow-sm">
         <Container>
           <div className="flex justify-between items-center py-4">
-            <h1 className="text-2xl font-bold text-slate-800">
+            <h3 className="text-2xl font-bold text-slate-800">
               Správa Online Lekcí
-            </h1>
+            </h3>
 
             <div className="flex gap-3">
               <a
@@ -545,9 +545,9 @@ export default function VideoDashboard() {
           {/* Add Video Form */}
           <div className="md:col-span-1">
             <div className="bg-white rounded-xl shadow p-6 sticky top-20">
-              <h2 className="text-lg font-bold mb-4 text-slate-800">
+              <h3 className="text-lg font-bold mb-4 text-slate-800">
                 Přidat video
-              </h2>
+              </h3>
 
               <form onSubmit={handleAddVideo} className="space-y-4">
                 <div>
@@ -735,9 +735,9 @@ export default function VideoDashboard() {
 
           {/* Videos List */}
           <div className="md:col-span-2">
-            <h2 className="text-lg font-bold mb-4 text-slate-800">
+            <h3 className="text-lg font-bold mb-4 text-slate-800">
               Online lekce ({videos.length})
-            </h2>
+            </h3>
 
             {isLoadingVideos ? (
               <p className="text-slate-600">Načítám...</p>

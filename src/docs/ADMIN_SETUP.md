@@ -9,7 +9,7 @@ You now have a complete client content management system for:
 
 ### Credentials
 
-- **Login URL:** `/admin/login`
+- **Login URL:** `/admin`
 - **Username:** `eliska`
 - **Password:** `hugo`
 - **Gallery Dashboard:** `/dashboard`
@@ -101,7 +101,7 @@ NEXT_PUBLIC_ADMIN_PASSWORD=hugo
 npm run dev
 ```
 
-- Login: http://localhost:3000/admin/login
+- Login: http://localhost:3000/admin
 - Gallery: http://localhost:3000/dashboard
 - Videos: http://localhost:3000/dashboard/videos
 
@@ -196,7 +196,7 @@ Vercel will automatically detect changes and deploy.
 
 ### 3. Access Dashboard
 
-- Production Login: `https://yourdomain.com/admin/login`
+- Production Login: `https://yourdomain.com/admin`
 - Production Gallery: `https://yourdomain.com/dashboard`
 - Production Videos: `https://yourdomain.com/dashboard/videos`
 
@@ -243,7 +243,7 @@ Add row-level security policies to require authentication for video access
 3. ✅ Add first gallery images
 4. ✅ Add first video lessons
 5. ✅ Deploy to Vercel
-6. ✅ Share `/admin/login` with Eliška
+6. ✅ Share `/admin` with Eliška
 7. (Optional) Update videos page on main site
 
 ---

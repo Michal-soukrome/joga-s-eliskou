@@ -88,7 +88,7 @@ Your `.env.local` already contains:
 
 ## Accessing the Admin Dashboard
 
-- Login URL: `http://localhost:3000/admin/login` (dev) or `/admin/login` (production)
+- Login URL: `http://localhost:3000/admin` (dev) or `/admin` (production)
 - Username: `hugo`
 - Password: `hugo`
 - Dashboard: `/dashboard`

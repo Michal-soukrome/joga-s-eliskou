@@ -3,6 +3,7 @@ import { useState } from "react";
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
 import { useReservation } from "@/context/ReservationContext";
+import Link from "next/link";
 
 const lessons = [
   {
@@ -163,10 +164,13 @@ export default function Lekce() {
           })}
         </div>
 
-        <div className="mt-5">
-          <button className="btn-primary mx-auto" onClick={openModal}>
+        <div className="flex gap-2 items-center justify-center mt-5">
+          <button className="btn-primary" onClick={openModal}>
             Rezervovat
           </button>
+          <Link href="/lekce" className="btn-secondary">
+            Videa online lekcí
+          </Link>
         </div>
       </Container>
     </section>

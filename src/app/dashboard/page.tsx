@@ -45,7 +45,7 @@ export default function Dashboard() {
   const [isBulkMode, setIsBulkMode] = useState(false);
 
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) router.push("/admin/login");
+    if (!isLoading && !isAuthenticated) router.push("/admin");
   }, [isAuthenticated, isLoading, router]);
 
   useEffect(() => {
@@ -286,7 +286,7 @@ export default function Dashboard() {
 
   const handleLogout = () => {
     logout();
-    router.push("/admin/login");
+    router.push("/admin");
   };
 
   if (isLoading)
@@ -303,9 +303,9 @@ export default function Dashboard() {
       <div className="border-b bg-white shadow-sm">
         <Container>
           <div className="flex justify-between items-center py-4">
-            <h1 className="text-2xl font-bold text-slate-800">
+            <h3 className="text-2xl font-bold text-slate-800">
               Správa Galerie
-            </h1>
+            </h3>
             <div className="flex gap-3 items-center">
               <a
                 href="/dashboard/videos"
@@ -346,9 +346,9 @@ export default function Dashboard() {
           {/* Upload Form */}
           <div className="md:col-span-1">
             <div className="bg-white rounded-xl shadow p-6 sticky top-20">
-              <h2 className="text-lg font-bold mb-4 text-slate-800">
+              <h3 className="text-lg font-bold mb-4 text-slate-800">
                 Nahrát obrázek
-              </h2>
+              </h3>
 
               <form onSubmit={handleAddImage} className="space-y-4">
                 {/* Drop zone */}
@@ -480,9 +480,9 @@ export default function Dashboard() {
           {/* Images List */}
           <div className="md:col-span-2">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-slate-800">
+              <h3 className="text-lg font-bold text-slate-800">
                 Obrázky ({images.length})
-              </h2>
+              </h3>
               {images.length > 0 && (
                 <p className="text-xs text-slate-400">
                   Přetažením změníš pořadí
