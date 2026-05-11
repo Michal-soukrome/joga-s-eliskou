@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     siteName: "Jóga s Eliškou",
     title: "Jóga s Eliškou",
     description:
-      "Jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu.",
+      "Jóga v Berouně pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu.",
     images: ["/assets/eliska/eliska-cover.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Jóga s Eliškou",
     description:
-      "Jóga v Berouně pro začátečníky i mírně pokročilé. Síla, mobilita a dech v jednom pohybu.",
+      "Jóga v Berouně pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu.",
     images: ["/assets/eliska/eliska-cover.webp"],
   },
 };
