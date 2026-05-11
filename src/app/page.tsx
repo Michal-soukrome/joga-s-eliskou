@@ -6,7 +6,7 @@ import Pricing from "@/components/Pricing";
 import Reservations from "@/components/Reservations";
 import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
-import OnlineVideos from "@/components/OnlineVideos";
+import GalleryDynamic from "@/components/GalleryDynamic";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -23,7 +23,7 @@ export default function Home() {
       {/* <Reservations /> */}
       <Testimonials />
       <Gallery />
-      <OnlineVideos />
+      <GalleryDynamic />
       <FAQ />
       <Contact />
       <Footer />
