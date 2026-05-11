@@ -1,6 +1,16 @@
-/node_modules
-/dist
-/build
-/.env
-/.next
-/cache
+# Ignoruj node_modules v rootu i v podadresářích
+**/node_modules/
+
+# Ignoruj build výstupy
+**/dist/
+**/build/
+
+# Next.js
+.next/
+
+# Cache složky
+**/cache/
+
+# Env soubory
+.env
+.env.*
