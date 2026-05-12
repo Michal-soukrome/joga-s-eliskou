@@ -25,7 +25,7 @@ interface VideoLesson {
 function isEmbeddableUrl(url: string): boolean {
   return (
     isYouTubeUrl(url) ||
-    url.includes("youtu.be") || // ← catch short links even if ID parse fails
+    url.includes("youtu.be") ||
     url.includes("youtube.com") ||
     url.includes("vimeo.com") ||
     url.includes("loom.com")
@@ -33,14 +33,12 @@ function isEmbeddableUrl(url: string): boolean {
 }
 
 function getEmbedUrl(url: string): string {
-  // Try regex-based conversion first
   const embedYt = getYouTubeEmbedUrl(url);
   if (embedYt) return embedYt;
 
   const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
   if (vimeoMatch) return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
 
-  // Nuclear fallback: catch any youtu.be or youtube.com/watch that slipped through
   const ytFallback = url.match(
     /(?:youtu\.be\/|youtube\.com\/watch\?.*v=)([a-zA-Z0-9_-]{11})/,
   );
@@ -100,6 +98,7 @@ export default function VideoDashboard() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
+  const [editDuration, setEditDuration] = useState("");
 
   // Preview modal
   const [previewVideo, setPreviewVideo] = useState<VideoLesson | null>(null);
@@ -259,6 +258,7 @@ export default function VideoDashboard() {
     setEditingId(video.id);
     setEditTitle(video.title);
     setEditDescription(video.description || "");
+    setEditDuration(video.duration_seconds?.toString() || "");
   };
 
   const saveEdit = async (id: string) => {
@@ -271,6 +271,7 @@ export default function VideoDashboard() {
         body: JSON.stringify({
           title: editTitle,
           description: editDescription,
+          duration_seconds: editDuration ? parseInt(editDuration) : null,
         }),
       });
 
@@ -285,6 +286,9 @@ export default function VideoDashboard() {
                 ...v,
                 title: editTitle,
                 description: editDescription,
+                duration_seconds: editDuration
+                  ? parseInt(editDuration)
+                  : undefined,
               }
             : v,
         ),
@@ -794,19 +798,43 @@ export default function VideoDashboard() {
                     <div className="flex-1">
                       {editingId === video.id ? (
                         <div className="space-y-2">
-                          <input
-                            type="text"
-                            value={editTitle}
-                            onChange={(e) => setEditTitle(e.target.value)}
-                            className="w-full px-2 py-1 border border-slate-200 rounded text-sm"
-                          />
-                          <textarea
-                            value={editDescription}
-                            onChange={(e) => setEditDescription(e.target.value)}
-                            className="w-full px-2 py-1 border border-slate-200 rounded text-sm"
-                            rows={2}
-                          />
-                          <div className="flex gap-2">
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-600 mb-1">
+                              Název
+                            </label>
+                            <input
+                              type="text"
+                              value={editTitle}
+                              onChange={(e) => setEditTitle(e.target.value)}
+                              className="w-full px-2 py-1 border border-slate-200 rounded text-sm"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-600 mb-1">
+                              Popis
+                            </label>
+                            <textarea
+                              value={editDescription}
+                              onChange={(e) =>
+                                setEditDescription(e.target.value)
+                              }
+                              className="w-full px-2 py-1 border border-slate-200 rounded text-sm"
+                              rows={2}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-semibold text-slate-600 mb-1">
+                              Délka (sekundy)
+                            </label>
+                            <input
+                              type="number"
+                              value={editDuration}
+                              onChange={(e) => setEditDuration(e.target.value)}
+                              className="w-full px-2 py-1 border border-slate-200 rounded text-sm"
+                              placeholder="Délka v sekundách"
+                            />
+                          </div>
+                          <div className="flex gap-2 pt-2">
                             <button
                               onClick={() => saveEdit(video.id)}
                               className="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white text-sm rounded transition"

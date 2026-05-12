@@ -29,6 +29,49 @@ export async function GET(
   }
 }
 
+export async function PATCH(
+  req: NextRequest,
+  { params }: { params: { id: string } },
+) {
+  try {
+    const body = await req.json();
+    const {
+      title,
+      description,
+      video_url,
+      thumbnail_url,
+      duration_seconds,
+    } = body;
+
+    // Only update fields that are provided (partial update)
+    const updateData: Record<string, any> = {
+      updated_at: new Date(),
+    };
+
+    if (title !== undefined) updateData.title = title;
+    if (description !== undefined) updateData.description = description;
+    if (video_url !== undefined) updateData.video_url = video_url;
+    if (thumbnail_url !== undefined) updateData.thumbnail_url = thumbnail_url;
+    if (duration_seconds !== undefined) updateData.duration_seconds = duration_seconds;
+
+    const { data, error } = await supabase
+      .from("video_lessons")
+      .update(updateData)
+      .eq("id", params.id)
+      .select();
+
+    if (error) throw error;
+
+    return NextResponse.json(data[0]);
+  } catch (error) {
+    console.error("Error updating video lesson:", error);
+    return NextResponse.json(
+      { error: "Failed to update video lesson" },
+      { status: 500 },
+    );
+  }
+}
+
 export async function PUT(
   req: NextRequest,
   { params }: { params: { id: string } },
