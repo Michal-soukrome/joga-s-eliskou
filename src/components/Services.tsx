@@ -8,8 +8,8 @@ import Link from "next/link";
 const lessons = [
   {
     id: 1,
-    number: "",
-    title: "Jóga",
+
+    title: "Power jóga",
     subtitle: "Dynamická, posilující praxe s výdržemi v pozicích",
     steps: [
       {
@@ -47,7 +47,41 @@ const lessons = [
   },
   {
     id: 2,
-    number: "",
+
+    title: "Vinyasa jóga",
+    subtitle: "Přirozené plynutí v rytmu dechu. ",
+    steps: [
+      {
+        n: 1,
+        title: "DECH",
+        desc: "Nejdříve se naladíme na dech",
+      },
+      {
+        n: 2,
+        title: "MOBILITA",
+        desc: "Poté zahřejeme a rozhýbáme celé tělo.",
+      },
+      {
+        n: 3,
+        title: "FLOW",
+        desc: "Pokračujeme sekvencí v rytmu dechu - plynulé přecházení mezi pozicemi.",
+      },
+      {
+        n: 4,
+        title: "ZÁVĚREČNÉ POZICE",
+        desc: "Zklidnění a uvolnění napětí.",
+      },
+      {
+        n: 5,
+        title: "ŠAVÁSANA",
+        desc: "Hluboká relaxace s vonnou aromaterapií.",
+      },
+    ],
+    note: "Lekce je vedená jako ***, je proto vhodná pro začátečníky, i pokročilé.",
+  },
+  {
+    id: 3,
+
     title: "Jemná jóga",
     subtitle: "Klidná, plynulá praxe v rytmu dechu",
     steps: [
@@ -94,10 +128,9 @@ export default function Lekce() {
         <SectionTitle
           title="Lekce"
           subtitle="Kliknutím zobrazíš více informací"
-          accentColor="emerald"
         />
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {lessons.map((lesson) => {
             const isOpen = openId === lesson.id;
             return (
@@ -111,11 +144,8 @@ export default function Lekce() {
                 onClick={() => setOpenId(isOpen ? null : lesson.id)}
               >
                 {/* Header */}
-                <div className="flex items-start justify-between gap-4 p-6 group ">
+                <div className="flex items-start justify-between gap-4 p-4 group ">
                   <div>
-                    <p className="text-xs font-mono tracking-widest text-sky-400 mb-1">
-                      {lesson.number}
-                    </p>
                     <h3 className="text-xl font-bold text-sky-900 font-poppins group-hover:underline">
                       {lesson.title}
                     </h3>
