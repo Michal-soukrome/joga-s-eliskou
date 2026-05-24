@@ -90,7 +90,17 @@ export default function OnlineVideos() {
           subtitle="Cvič se mnou kdykoliv a odkudkoliv ✨ Nové lekce jógy každý týden, videa kdykoliv k dispozici a pravidelná dávka pohybu pro tvoje tělo i mysl."
           accentColor="emerald"
         />
-
+        {/* Support CTA */}
+        <div className="-mt-12 mb-16 flex justify-center">
+          <a
+            href="https://herohero.co/exceptionalbetqemrcpeywn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary"
+          >
+            Sleduj mě na HeroHero
+          </a>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {videos.map((video) => (
             <div

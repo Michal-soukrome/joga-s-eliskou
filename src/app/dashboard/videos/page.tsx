@@ -264,7 +264,7 @@ export default function VideoDashboard() {
   const saveEdit = async (id: string) => {
     try {
       const response = await fetch(`/api/videos/${id}`, {
-        method: "PATCH",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
