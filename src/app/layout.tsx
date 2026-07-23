@@ -16,9 +16,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Jóga s Eliškou",
   description:
-    "Jóga v Berouně pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu. Rezervace online přes Reservio.",
+    "Jóga pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu. Rezervace online.",
   keywords:
-    "jóga, Jóga, wellness, meditace, fitness, mindfulness, Beroun, Eliška Radová, Studio Yogaway",
+    "jóga, Jóga, wellness, meditace, fitness, mindfulness, Praha-Řepy, Eliška Radová, Studio Samadhi",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     siteName: "Jóga s Eliškou",
     title: "Jóga s Eliškou",
     description:
-      "Jóga v Berouně pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu.",
+      "Jóga pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu.",
     images: ["/assets/eliska/eliska-cover.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Jóga s Eliškou",
     description:
-      "Jóga v Berouně pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu.",
+      "Jóga pro začátečníky i pokročilé. Síla, mobilita a dech v jednom pohybu.",
     images: ["/assets/eliska/eliska-cover.webp"],
   },
 };

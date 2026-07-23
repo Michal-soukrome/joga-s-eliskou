@@ -18,8 +18,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-sm">
-              Certifikovaná instruktorka power jógy v Berouně. Lekce pro
-              začátečníky i pokročilé - síla, mobilita a dech v jednom pohybu.
+              Certifikovaná instruktorka jógy. Lekce pro začátečníky i pokročilé
+              - síla, mobilita a dech v jednom pohybu.
             </p>
           </div>
 

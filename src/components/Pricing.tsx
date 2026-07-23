@@ -1,7 +1,6 @@
 "use client";
 import SectionTitle from "@/components/SectionTitle";
 import Container from "@/components/Container";
-import { useReservation } from "@/context/ReservationContext";
 
 const pricingPlans = [
   {
@@ -48,8 +47,6 @@ const pricingPlans = [
 ];
 
 export default function Pricing() {
-  const { openModal } = useReservation();
-
   return (
     <section
       id="pricing"
@@ -112,15 +109,21 @@ export default function Pricing() {
 
               {/* CTA */}
               {plan.href === "#reservations" ? (
-                <button
-                  type="button"
-                  onClick={openModal}
-                  className={`btn ${
-                    plan.highlighted ? "btn-primary" : "btn-secondary"
-                  }`}
+                <a
+                  href="https://studiosamadhi.inrs.cz/rs/kal/14/skupinove-lekce-oc-repy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
                 >
-                  {plan.cta} →
-                </button>
+                  <button
+                    type="button"
+                    className={`w-full btn ${
+                      plan.highlighted ? "btn-primary" : "btn-secondary"
+                    }`}
+                  >
+                    {plan.cta} →
+                  </button>
+                </a>
               ) : (
                 <a
                   href={plan.href}

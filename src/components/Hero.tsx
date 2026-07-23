@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="max-w-xl space-y-6">
           {/* Location */}
           <span className="hidden md:flex text-[11px] uppercase tracking-[0.35em] text-sky-200/80 font-semibold font-poppins">
-            Jóga · Beroun
+            Jóga · Praha
           </span>
 
           {/* Headline */}
@@ -46,10 +46,13 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <button onClick={openModal} className="btn-primary">
-              Rezervovat lekci
-            </button>
-
+            <a
+              href="https://studiosamadhi.inrs.cz/rs/kal/14/skupinove-lekce-oc-repy/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="btn-primary">Rezervovat lekci</button>
+            </a>
             <a href="#about" className="btn-secondary">
               Více informací
             </a>

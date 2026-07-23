@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "Jak se dostanu do studia?",
     answer:
-      "Studio Yogaway je v Berouně na adrese Na Parkáně 367/14, hned za autorizačním servisem vozů ŠKODA. Auto si můžete zaparkovat na nedalekém parkovišti (po 18.hod je bezplatné), nebo využít autobus (zastávka U černého koně vzdálená asi 600 m).",
+      "Studio Samadhi je v Praze-Řepích na adrese Makovského 1392, 163 00.",
   },
   {
     question: "Mohu si koupit permanentku?",

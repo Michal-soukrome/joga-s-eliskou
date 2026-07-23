@@ -11,6 +11,10 @@ const lessons = [
 
     title: "Power jóga",
     subtitle: "Dynamická, posilující praxe s výdržemi v pozicích",
+    schedule: [
+      { day: "NEDĚLE", time: "18:00 OC Řepy" },
+      { day: "PONDĚLÍ", time: "18:00 OC Řepy" },
+    ],
     steps: [
       {
         n: 1,
@@ -84,6 +88,10 @@ const lessons = [
 
     title: "Jemná jóga",
     subtitle: "Klidná, plynulá praxe v rytmu dechu",
+    schedule: [
+      { day: "NEDĚLE", time: "19:15 OC Řepy" },
+      { day: "PONDĚLÍ", time: "19:15 OC Řepy" },
+    ],
     steps: [
       {
         n: 1,
@@ -165,6 +173,24 @@ export default function Lekce() {
                   className={`transition-all duration-300 ease-in-out ${isOpen ? "max-h-[700px]" : "max-h-0"} overflow-hidden`}
                 >
                   <div className="px-6 pb-6 border-t border-sky-100 pt-5">
+                    {lesson.schedule && (
+                      <div className="mb-5">
+                        <div className="space-y-2">
+                          {lesson.schedule.map((item) => (
+                            <div
+                              key={item.day}
+                              className="flex items-center justify-between gap-4 text-sm font-semibold text-sky-800"
+                            >
+                              <span>{item.day}</span>
+                              <span className="text-right text-sky-600">
+                                {item.time}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                        <div className="mt-4 h-px bg-sky-100" />
+                      </div>
+                    )}
                     <ul className="space-y-3">
                       {lesson.steps.map((step) => (
                         <li key={step.n} className="flex gap-3 items-start">
@@ -195,9 +221,13 @@ export default function Lekce() {
         </div>
 
         <div className="flex gap-2 items-center justify-center mt-5">
-          <button className="btn-primary" onClick={openModal}>
-            Rezervovat
-          </button>
+          <a
+            href="https://studiosamadhi.inrs.cz/rs/kal/14/skupinove-lekce-oc-repy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="btn-primary">Rezervovat</button>
+          </a>
           <Link href="/lekce" className="btn-secondary">
             Videa online lekcí
           </Link>

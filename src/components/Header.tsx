@@ -101,12 +101,15 @@ export default function Header() {
               ))}
 
               <li>
-                <button
-                  onClick={openModal}
-                  className="btn-primary ml-2 !uppercase"
+                <a
+                  href="https://studiosamadhi.inrs.cz/rs/kal/14/skupinove-lekce-oc-repy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Rezervovat
-                </button>
+                  <button className="btn-primary ml-2 !uppercase">
+                    Rezervovat
+                  </button>
+                </a>
               </li>
 
               {/* Divider 
@@ -195,15 +198,20 @@ export default function Header() {
             </li>
 
             <li className="flex gap-2">
-              <button
-                onClick={() => {
-                  openModal();
-                  setOpen(false);
-                }}
-                className="w-full btn-primary"
+              <a
+                href="https://studiosamadhi.inrs.cz/rs/kal/14/skupinove-lekce-oc-repy/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Rezervovat
-              </button>
+                <button
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                  className="w-full btn-primary"
+                >
+                  Rezervovat
+                </button>
+              </a>
               <SmartLink href="/lekce" className="w-full btn-secondary">
                 Online lekce
               </SmartLink>

@@ -17,12 +17,13 @@ const contactItems = [
   },
   {
     label: "Adresa",
-    value: "Na Parkáně 367/14, Beroun 26601",
-    href: "https://maps.app.goo.gl/3pbzePJYsYuyo2NDA",
+    value:
+      "Studio Samadhi - Obchodní centrum Řepy, Makovského 1392, 163 00, Praha-Řepy",
+    href: "https://maps.app.goo.gl/YSMUTZJHQ4XWekiS8",
   },
   {
-    label: "Rozvrh lekce",
-    value: "Středa 19:45 - 20:45",
+    label: "Rozvrh lekcí",
+    value: "Neděle 18:00, 19:15\nPondělí 18:00, 19:15",
     href: null,
   },
   {
@@ -33,8 +34,6 @@ const contactItems = [
 ];
 
 export default function Contact() {
-  const { openModal } = useReservation();
-
   return (
     <section
       id="contact"
@@ -94,12 +93,18 @@ export default function Contact() {
               na nejbližší lekci
             </h3>
             <p className="text-sky-600 text-base leading-relaxed mb-8">
-              Rezervace probíhá přes platformu Reservio. Stačí vybrat datum a
-              zarezervovat si místo jednoduše online.
+              Rezervace probíhá přes rezervační systém studia Samadhi. Stačí
+              vybrat datum a zarezervovat si místo jednoduše online.
             </p>
-            <button onClick={openModal} className="inline-block btn-primary">
-              Rezervovat přes Reservio
-            </button>
+            <a
+              href="https://studiosamadhi.inrs.cz/rs/kal/14/skupinove-lekce-oc-repy/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="inline-block btn-primary">
+                Rezervovat online
+              </button>
+            </a>
           </div>
         </div>
       </Container>
